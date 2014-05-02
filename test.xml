@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="ARTICLES">
+    <column>ID</column>
+    <column>IS_SOLD</column>
+    <column>USER_ID</column>
+    <column>NAME</column>
+    <column>MIDDLE_CATEGORY</column>
+    <column>LARGE_CATEGORY</column>
+    <column>PRICE</column>
+    <column>STATE</column>
+    <column>QUANTITY</column>
+    <column>MAKER</column>
+    <column>REGION</column>
+  </table>
+  <table name="ARTICLES_DESCRIPTIONS">
+    <column>ARTICLE_ID</column>
+    <column>CONTENT</column>
+    <column>PREVIEW</column>
+  </table>
+  <table name="ARTICLES_IMAGES">
+    <column>ARTICLE_ID</column>
+    <column>IMAGE</column>
+  </table>
+  <table name="ARTICLES_KEYWORDS">
+    <column>ARTICLE_ID</column>
+    <column>KEYWORD</column>
+  </table>
+  <table name="MESSAGES">
+    <column>ID</column>
+    <column>TO_USER_ID</column>
+    <column>FROM_USER_ID</column>
+    <column>PREVIEW</column>
+    <column>CONTENT</column>
+    <column>SENDING_DATE</column>
+  </table>
+  <table name="USERS">
+    <column>ID</column>
+    <column>NAME</column>
+    <column>NAME_CRC</column>
+    <column>EMAIL</column>
+    <column>EMAIL_CRC</column>
+    <column>PASSWORD</column>
+    <column>TELEPHONE</column>
+  </table>
+  <table name="USERS_AUTHORITIES">
+    <column>USER_ID</column>
+    <column>AUTHORITY</column>
+  </table>
+</dataset>
