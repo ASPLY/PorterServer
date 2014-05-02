@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.porter.web.dao.PartDao">
+    
+    <resultMap id="partDTO" type="com.porter.web.dto.PartDTO" >
+		<result property="id" 					column="ID"/>
+		<result property="name" 				column="NAME"/>
+		<result property="middleCategory" 		column="MIDDLE_CATEGORY"/>
+		<result property="largeCategory" 		column="LARGE_CATEGORY"/>
+		<result property="keyword1" 			column="KEYWORD1"/>
+		<result property="keyword2" 			column="KEYWORD2"/>
+		<result property="keyword3" 			column="KEYWORD3"/>
+		<result property="keyword4" 			column="KEYWORD4"/>
+		<result property="keyword5" 			column="KEYWORD5"/>
+		<result property="price" 				column="PRICE"/>
+		<result property="maker" 				column="MAKER"/>
+		<result property="state" 				column="STATE"/>
+		<result property="quantity" 			column="QUANTITY"/>
+		<result property="imageUrl1" 			column="IMAGE_URL1"/>
+		<result property="imageUrl2" 			column="IMAGE_URL2"/>
+		<result property="imageUrl3" 			column="IMAGE_URL3"/>
+		<result property="imageUrl4" 			column="IMAGE_URL4"/>
+		<result property="description" 			column="DESCRIPTION"/>
+		<result property="region" 				column="REGION"/>
+		<result property="userId" 				column="USER_ID"/>
+    </resultMap>
+
+	<select id="findById" parameterType="long" resultMap="partDTO">
+		SELECT * FROM parts
+		WHERE ID = #{partId}
+	</select>
+	
+	<select id="getAll" resultMap="partDTO">
+		SELECT * FROM parts
+	</select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO parts (
+        NAME, 
+        MIDDLE_CATEGORY, 
+        LARGE_CATEGORY, 
+        KEYWORD1, 
+        KEYWORD2, 
+        KEYWORD3, 
+        KEYWORD4, 
+        KEYWORD5,
+        PRICE,
+        MAKER,
+        STATE,
+        QUANTITY,
+        IMAGE_URL1,
+        IMAGE_URL2,
+        IMAGE_URL3,
+        IMAGE_URL4,
+        DESCRIPTION,
+        REGION,
+        USER_ID)
+		VALUES (
+				#{name}, 			
+				#{middleCategory}, 	
+				#{largeCategory},	
+				#{keyword1}, 		
+				#{keyword2}, 		
+				#{keyword3}, 		
+				#{keyword4}, 		
+				#{keyword5}, 		
+				#{price}, 			
+				#{maker}, 			
+				#{state}, 			
+				#{quantity}, 		
+				#{imageUrl1}, 		
+				#{imageUrl2}, 		
+				#{imageUrl3}, 		
+				#{imageUrl4}, 		
+				#{description}, 		
+				#{region}, 			
+				#{userId}
+				)		
+    </insert>
+    
+      <select id="findBySearch" resultMap="partDTO">
+    	SELECT * FROM parts
+    	<where> 
+	    	<if test="keyword != null">
+		    	NAME like CONCAT(#{keyword},'%')
+	    	</if>
+	  		<if test='largeCategory != "0"'>
+	    		AND LARGE_CATEGORY = #{largeCategory}
+	  		</if>
+	    	<if test='middleCategory != "0"'>
+	    		AND MIDDLE_CATEGORY = #{middleCategory}
+	  		</if>
+  		</where>
+  		
+  		ORDER BY ID DESC
+  		
+  		<choose>
+	  		<when test='offset != "0"'>
+	    		Limit #{offset}, #{count}
+	  		</when>
+	  		<otherwise>
+		  		Limit #{count}
+	  		</otherwise>
+  		</choose>
+    </select>
+</mapper>

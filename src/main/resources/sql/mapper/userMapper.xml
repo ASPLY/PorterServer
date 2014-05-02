@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.porter.web.dao.UserDao">
+    
+    <resultMap id="userDTO" type="com.porter.web.dto.UserDTO" >
+		<result property="email" 			column="EMAIL"/>
+		<result property="password" 		column="PASSWORD"/>
+		<result property="telephone" 		column="TELEPHONE"/>
+    </resultMap>
+
+
+    <insert id="insert">
+        INSERT INTO users (EMAIL, PASSWORD, TELEPHONE)
+		VALUES (
+				#{email},
+				#{password},
+				#{telephone}
+				)
+    </insert>
+    
+   <select id="findByEmail" parameterType="java.lang.String" resultMap="userDTO">
+		SELECT * FROM users  
+		WHERE EMAIL like CONCAT(#{email},'%')
+    </select>
+   
+   <select id="findByEmailAndPassword" resultMap="userDTO">
+    	SELECT ID FROM users 
+    	WHERE EMAIL = #{email} AND PASSWORD = #{password}
+    </select>
+   
+   <select id="findById" parameterType="java.lang.Integer" resultMap="userDTO">
+    	SELECT * FROM users 
+    	WHERE ID = #{id}
+   </select>
+    
+</mapper>
