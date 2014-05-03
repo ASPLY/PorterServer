@@ -25,7 +25,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	private static final String SPRING_SECURITY_FILTER_CHAIN_NAME = "springSecurityFilterChain";
 	private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
 	private static final String CHARACTER_ENCODING_FILTER_NAME = "CharacterEncodingFilter";
-	private static final String MULTIPARTFILTER_NAME = "multipartFilter";
 	private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 	private static final String DISPATCHER_SERVLET_MAPPING = "/";
 
@@ -34,7 +33,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		WebApplicationContext rootContext = createRootContext(servletContext);
 		configureSpringMvc(servletContext, rootContext);
 		configureSpringSecurity(servletContext, rootContext);
-//		configureSpringFileUpload(servletContext, rootContext);
 	}
 
 
@@ -84,9 +82,4 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		FilterRegistration.Dynamic springSecurity = servletContext.addFilter(SPRING_SECURITY_FILTER_CHAIN_NAME, new DelegatingFilterProxy(SPRING_SECURITY_FILTER_CHAIN_NAME, rootContext));
 		springSecurity.addMappingForUrlPatterns(null, true, "/*");
 	}
-	
-//	private void configureSpringFileUpload(ServletContext servletContext, WebApplicationContext rootContext) {
-//		FilterRegistration.Dynamic fileUpload = servletContext.addFilter(MULTIPARTFILTER_NAME, new MultipartFilter());
-//		fileUpload.addMappingForUrlPatterns(null, true, "/*");
-//	}
 }

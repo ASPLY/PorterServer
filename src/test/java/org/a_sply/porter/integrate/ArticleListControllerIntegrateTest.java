@@ -7,11 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import javax.annotation.Resource;
-
 import org.a_sply.porter.config.CoreConfig;
-import org.a_sply.porter.config.MVCConfig;
 import org.a_sply.porter.config.SecurityConfig;
+import org.a_sply.porter.config.TestMVCConfig;
 import org.a_sply.porter.controller.UnitTestUtil;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
@@ -20,6 +18,8 @@ import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -30,7 +30,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {MVCConfig.class, CoreConfig.class, SecurityConfig.class})
+@ContextConfiguration(classes = {TestMVCConfig.class, CoreConfig.class, SecurityConfig.class})
 @WebAppConfiguration
 public class ArticleListControllerIntegrateTest {
 
@@ -38,33 +38,34 @@ public class ArticleListControllerIntegrateTest {
 	private MockMvc mockMvc;
 	private IntegrateTestUtil integrateTestUtil;
 
-	@Resource
+	@Autowired
 	private WebApplicationContext webApplicationContext;
-	//private CreatedApiKeyDTO createdUserApiKeyDTO;
-	private CreatedArticleDTO createdArticleDTOA;
+	
+	private CreatedArticleDTO createdArticleDTO;
+	
+	@Autowired
+    private FilterChainProxy springSecurityFilterChain;
+	private User userA;
+	
 
 	@Before
 	public void setUp() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-				.build();
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).addFilter(springSecurityFilterChain).build();
 		integrateTestUtil = new IntegrateTestUtil(mockMvc);
 
-		// when
-		User userA = UnitTestUtil.userA();
+		userA = UnitTestUtil.userA();
 		integrateTestUtil.createUser(UnitTestUtil.createUserDTO(userA));
-		//createdUserApiKeyDTO = integrateTestUtil.loginUser(UnitTestUtil.loginUserDTO(userA));
 		for (int i = 0; i < INSERT_COUNT; i++)
-			createdArticleDTOA = integrateTestUtil.createArticle(UnitTestUtil.createArticleDTO(), UnitTestUtil.buildBasicAuthHeaderValue(userA));
+			createdArticleDTO = integrateTestUtil.createArticle(UnitTestUtil.createArticleDTO(), UnitTestUtil.buildBasicAuthHeaderValue(userA));
 		
 	}
 
 	@Test
 	public void search_성공_결과2개() throws Exception {
 		// when
-		SearchArticleListDTO searchPartListDTO = UnitTestUtil
-				.searchArticleListDTO(createdArticleDTOA.getPart());
+		SearchArticleListDTO searchPartListDTO = UnitTestUtil.searchArticleListDTO(createdArticleDTO.getPart());
 
-		// givn
+		// given
 		mockMvc.perform(
 				post("/articleLists")
 						.param("count", String.valueOf(searchPartListDTO.getCount()))
@@ -72,9 +73,7 @@ public class ArticleListControllerIntegrateTest {
 						.param("largeCategory", searchPartListDTO.getLargeCategory())
 						.param("middleCategory", searchPartListDTO.getMiddleCategory()))
 				.andDo(print())
-				.andExpect(
-						jsonPath("$.articleLists",
-								hasSize(searchPartListDTO.getCount())))
+				.andExpect(jsonPath("$.articleLists", hasSize(searchPartListDTO.getCount())))
 				.andExpect(status().isOk());
 		// then
 	}
@@ -103,7 +102,9 @@ public class ArticleListControllerIntegrateTest {
 
 		// givn
 		mockMvc.perform(
-				post("/articleLists/user")).andDo(print())
+				post("/articleLists/user")
+				.header("Authorization", UnitTestUtil.buildBasicAuthHeaderValue(userA)))
+				.andDo(print())
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.articleLists", hasSize(INSERT_COUNT)));
 		// then
@@ -114,9 +115,8 @@ public class ArticleListControllerIntegrateTest {
 	public void get_성공() throws Exception {
 		// when
 		int expectedCount = 2;
-		RequestArticleListsDTO getArticleListsDTO = UnitTestUtil
-				.getArticleListsDTO(createdArticleDTOA.getPart()
-						.getMiddleCategory(), createdArticleDTOA.getPart()
+		RequestArticleListsDTO getArticleListsDTO = UnitTestUtil.getArticleListsDTO(createdArticleDTO.getPart()
+						.getMiddleCategory(), createdArticleDTO.getPart()
 						.getLargeCategory(), expectedCount);
 
 		// givn

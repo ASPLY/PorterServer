@@ -31,9 +31,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {SecurityConfig.class})
-@WebAppConfiguration
 public class ArticleControllerTest {
 
 	private static final int ID = 1;

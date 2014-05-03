@@ -26,7 +26,7 @@ public class Description {
 		if (length > PART_LIST_DES_LENGTH)
 			return description.substring(0, PART_LIST_DES_LENGTH) + "...";
 
-		return description + "...";
+		return description;
 	}
 
 	public String getContent() {

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.a_sply.porter.config.CoreConfig;
 import org.a_sply.porter.config.MVCConfig;
 import org.a_sply.porter.config.SecurityConfig;
+import org.a_sply.porter.config.TestMVCConfig;
 import org.a_sply.porter.controller.UnitTestUtil;
 import org.a_sply.porter.domain.User;
 import org.junit.Before;
@@ -20,7 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { MVCConfig.class, CoreConfig.class, SecurityConfig.class})
+@ContextConfiguration(classes = { TestMVCConfig.class, CoreConfig.class, SecurityConfig.class})
 @WebAppConfiguration
 public class MessageListControllerIntegrateTest {
 

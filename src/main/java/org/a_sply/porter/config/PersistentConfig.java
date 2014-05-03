@@ -39,17 +39,13 @@ public class PersistentConfig {
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(environment
-				.getProperty("jdbc.driverClassName"));
+		basicDataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
 		basicDataSource.setUrl(environment.getProperty("jdbc.url"));
 		basicDataSource.setUsername(environment.getProperty("jdbc.username"));
 		basicDataSource.setPassword(environment.getProperty("jdbc.password"));
-		basicDataSource.setMaxActive(Integer.parseInt(environment
-				.getProperty("jdbc.maxActive")));
-		basicDataSource.setMaxIdle(Integer.parseInt(environment
-				.getProperty("jdbc.maxIdle")));
-		basicDataSource.setMinIdle(Integer.parseInt(environment
-				.getProperty("jdbc.minIdle")));
+		basicDataSource.setMaxActive(Integer.parseInt(environment.getProperty("jdbc.maxActive")));
+		basicDataSource.setMaxIdle(Integer.parseInt(environment.getProperty("jdbc.maxIdle")));
+		basicDataSource.setMinIdle(Integer.parseInt(environment.getProperty("jdbc.minIdle")));
 
 		return basicDataSource;
 	}

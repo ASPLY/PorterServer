@@ -87,8 +87,7 @@ public class ArticleListSerivceTest {
 		ArticleListsDTO results = articleService.get(getArticleListsDTO);
 
 		// then
-		verify(articleListRepository).get(
-				RequestArticleLists.from(getArticleListsDTO));
+		verify(articleListRepository).get(RequestArticleLists.from(getArticleListsDTO));
 		assertThat(articles.size(), is(results.getArticleLists().size()));
 	}
 }

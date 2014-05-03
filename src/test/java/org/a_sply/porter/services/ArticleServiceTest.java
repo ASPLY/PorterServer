@@ -49,7 +49,7 @@ public class ArticleServiceTest {
 
 		// then
 		assertThat(createdArticleDTO.getUser().getEmail(), is(userA.getEmail()));
-		verify(authenticationService, times(1));
+		verify(authenticationService).getCurrentUser();
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class ArticleServiceTest {
 		articleService.get(id);
 
 		// then
-		verify(articleRepository, times(1)).get(id);
+		verify(articleRepository).get(id);
 	}
 
 	@Test(expected = RuntimeException.class)

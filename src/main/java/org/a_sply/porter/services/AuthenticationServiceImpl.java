@@ -9,6 +9,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	
 	@Override
 	public User getCurrentUser() {
-		return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		return (User) principal;
 	}
 }
