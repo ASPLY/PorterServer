@@ -3,6 +3,8 @@ package org.a_sply.porter.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +15,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping(value = "/categorys")
 public class CategoryController extends BaseController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public Map<String, String> gatAll() {
+		LOGGER.debug("gatAll");
 		Map<String, String> result = new HashMap<String, String>();
 
 		result.putAll(map(new String[] { "1000", "1001", "1002", "1003",

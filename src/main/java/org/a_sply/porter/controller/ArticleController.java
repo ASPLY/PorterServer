@@ -30,6 +30,7 @@ public class ArticleController extends BaseController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> get(@PathVariable int id) {
+		LOGGER.debug("get : {}", id);
 		ArticleDTO requestArticleDTO = articleService.get(id);
 		if (requestArticleDTO == null)
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
@@ -39,7 +40,7 @@ public class ArticleController extends BaseController {
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> create(@Valid CreateArticleDTO createArticleDTO) {
-		LOGGER.debug("Received createArticleDTO : {}", createArticleDTO);
+		LOGGER.debug("create : {}", createArticleDTO);
 		CreatedArticleDTO createdArticleDTO = articleService.create(createArticleDTO);
 		return new ResponseEntity<CreatedArticleDTO>(createdArticleDTO, HttpStatus.OK);
 	}
@@ -47,6 +48,7 @@ public class ArticleController extends BaseController {
 	@RequestMapping(value = "/{id}/sold", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> sold(@PathVariable int id) {
+		LOGGER.debug("sold : {}", id);
 		if (articleService.sold(id))
 			return new ResponseEntity(HttpStatus.OK);
 		else

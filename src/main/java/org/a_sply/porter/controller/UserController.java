@@ -31,14 +31,14 @@ public class UserController extends BaseController {
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public void create(@Valid CreateUserDTO createuserDTO) {
-		LOGGER.debug("Received createUserDTO : {}", createuserDTO);
+		LOGGER.debug("create : {}", createuserDTO);
 		userService.createUser(createuserDTO);
 	}
 	
 	@RequestMapping(value = "/check/email", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> check(@Valid CheckEmailDTO checkEmailDTO) {
-		LOGGER.debug("Received checkEmailDTO : {}", checkEmailDTO);
+		LOGGER.debug("check : {}", checkEmailDTO);
 		if (userService.check(checkEmailDTO))
 			return new ResponseEntity(HttpStatus.OK);
 		else 
@@ -49,7 +49,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/check/name", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> check(@Valid CheckNameDTO checkNameDTO) {
-		LOGGER.debug("Received checkNameDTO : {}", checkNameDTO);
+		LOGGER.debug("check : {}", checkNameDTO);
 		if (userService.check(checkNameDTO)) 
 			return new ResponseEntity(HttpStatus.OK);
 		 else 
@@ -60,8 +60,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity login(@Valid LoginUserDTO loginUserDTO) {
-		System.out.println("login !");
-		LOGGER.debug("Received loginUserDTO : {}", loginUserDTO);
+		LOGGER.debug("login : {}", loginUserDTO);
 		if (userService.login(loginUserDTO)) 
 			return new ResponseEntity(HttpStatus.OK);
 		else

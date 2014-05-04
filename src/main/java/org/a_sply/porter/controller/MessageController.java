@@ -6,6 +6,8 @@ import org.a_sply.porter.domain.Message;
 import org.a_sply.porter.dto.message.MessageDTO;
 import org.a_sply.porter.dto.message.SendMessageDTO;
 import org.a_sply.porter.services.MessageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @SuppressWarnings("rawtypes")
 @RequestMapping("/messages")
 public class MessageController extends BaseController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(MessageController.class);
 
 	@Autowired
 	private MessageService messageService;
@@ -28,12 +32,14 @@ public class MessageController extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public void send(@Valid SendMessageDTO sendMessageDTO) {
+		LOGGER.debug("send : {}", sendMessageDTO);
 		messageService.send(sendMessageDTO);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> get(@PathVariable int id) {
+		LOGGER.debug("get : {}", id);
 		MessageDTO requestMessageDTO = messageService.get(id);
 		if (requestMessageDTO == null)
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
@@ -44,6 +50,7 @@ public class MessageController extends BaseController {
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	public void delete(@PathVariable int id) {
+		LOGGER.debug("delete : {}", id);
 		messageService.remove(id);
 	}
 

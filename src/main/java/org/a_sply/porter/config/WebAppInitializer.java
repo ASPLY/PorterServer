@@ -14,7 +14,6 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.DelegatingFilterProxy;
-import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
@@ -22,8 +21,8 @@ import org.springframework.web.servlet.DispatcherServlet;
  */
 public class WebAppInitializer implements WebApplicationInitializer {
 
-	private static final String SPRING_SECURITY_FILTER_CHAIN_NAME = "springSecurityFilterChain";
 	private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
+	private static final String SPRING_SECURITY_FILTER_CHAIN_NAME = "springSecurityFilterChain";
 	private static final String CHARACTER_ENCODING_FILTER_NAME = "CharacterEncodingFilter";
 	private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 	private static final String DISPATCHER_SERVLET_MAPPING = "/";
@@ -35,7 +34,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		configureSpringSecurity(servletContext, rootContext);
 	}
 
-
 	private WebApplicationContext createRootContext(ServletContext servletContext) {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(CoreConfig.class, SecurityConfig.class);
@@ -46,8 +44,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
 		return rootContext;
 	}
-
-	// {!end addToRootContext}
 
 	private void configureSpringMvc(ServletContext servletContext,
 			WebApplicationContext rootContext) {
