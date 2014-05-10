@@ -48,7 +48,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public CreatedArticleDTO create(CreateArticleDTO createArticleDTO) {
 		User user = authenticationService.getCurrentUser();
-		List<Image> images = imageManager.uploadImageAndMakeThumbnails(createArticleDTO.getImageFiles());
+		List<Image> images = imageManager.upload(createArticleDTO.getImageFiles());
 		Part part = Part.from(createArticleDTO.getPart());
 		part.setImages(images);
 		Article article = new Article(user, part);

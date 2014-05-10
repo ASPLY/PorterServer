@@ -1,14 +1,12 @@
-package org.a_sply.porter.model;
+package org.a_sply.porter.util;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
 import org.a_sply.porter.controller.UnitTestUtil;
 import org.a_sply.porter.domain.Image;
-import org.a_sply.porter.util.ImageManager;
-import org.a_sply.porter.util.ImageManagerImpl;
 import org.junit.Test;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,11 +16,8 @@ public class ImageManagerTest {
 
 	@Test
 	public void uploadAndThumbnail_성공() {
-		MultipartFile[] multipartFiles = new MultipartFile[] {
-				UnitTestUtil.multipartFile(UnitTestUtil.IMAGES_A_TEST_JPG),
-				UnitTestUtil.multipartFile(UnitTestUtil.IMAGES_B_TEST_JPG) };
-		List<Image> images = imageManager
-				.uploadImageAndMakeThumbnails(multipartFiles);
+		MultipartFile[] multipartFiles = new MultipartFile[] {UnitTestUtil.multipartFile(UnitTestUtil.IMAGES_A_TEST_JPG), UnitTestUtil.multipartFile(UnitTestUtil.IMAGES_B_TEST_JPG) };
+		List<Image> images = imageManager.upload(multipartFiles);
 		assertThat(images.size(), is(multipartFiles.length));
 		for (Image image : images) {
 			System.out.println(image.getOriginal());

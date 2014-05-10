@@ -1,5 +1,7 @@
 package org.a_sply.porter.dto.part;
 
+import org.a_sply.porter.dto.image.ImageDTO;
+
 public class PartDTO {
 
 	private String name;
@@ -13,7 +15,7 @@ public class PartDTO {
 	private String description;
 	private String region;
 
-	private String[] imageUrls;
+	private ImageDTO[] images;
 
 	public String getName() {
 		return name;
@@ -87,12 +89,12 @@ public class PartDTO {
 		this.description = description;
 	}
 
-	public String[] getImageUrls() {
-		return imageUrls;
+	public ImageDTO[] getImages() {
+		return images;
 	}
 
-	public void setImageUrls(String[] imageUrls) {
-		this.imageUrls = imageUrls;
+	public void setImages(ImageDTO[] images) {
+		this.images = images;
 	}
 
 	public String getRegion() {

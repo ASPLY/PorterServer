@@ -1,4 +1,4 @@
-package org.a_sply.porter.model;
+package org.a_sply.porter.util;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,14 +15,12 @@ public class ThumbnailMakerTest {
 	private ThumbnailMaker thumbnailMaker = new ThumbnailMakerImpl();
 
 	@Test
-	public void make_성공() {
+	public void makeAndSave_성공() {
 		// when
-		File files[] = new File[] { new File(UnitTestUtil.IMAGES_A_TEST_JPG),
-				new File(UnitTestUtil.IMAGES_B_TEST_JPG) };
+		File files[] = new File[] { new File(UnitTestUtil.IMAGES_A_TEST_JPG), new File(UnitTestUtil.IMAGES_B_TEST_JPG) };
 
 		// given
-		File result[] = thumbnailMaker.make(
-				UnitTestUtil.TEST_STORAGE_ARTICLE_THUMBNAIL_DIR, files, 300);
+		File result[] = thumbnailMaker.makeAndSave(UnitTestUtil.TEST_STORAGE_ARTICLE_THUMBNAIL_DIR, files, 300);
 
 		// then
 		assertThat(files.length, is(result.length));

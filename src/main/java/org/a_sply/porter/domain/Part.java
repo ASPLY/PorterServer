@@ -153,11 +153,12 @@ public class Part {
 	public PartDTO partDTO() {
 		PartDTO partDTO = new PartDTO();
 		partDTO.setDescription(description.getContent());
-		List<String> imageUrls = new ArrayList<String>();
+		
+		List<ImageDTO> imageDTOs = new ArrayList<ImageDTO>();
 		for (Image image : images) {
-			imageUrls.add(image.getOriginal());
+			imageDTOs.add(image.imageDTO());
 		}
-		partDTO.setImageUrls(imageUrls.toArray(new String[0]));
+		partDTO.setImages(imageDTOs.toArray(new ImageDTO[0]));
 		partDTO.setKeywords(keywords.toArray(new String[0]));
 		partDTO.setLargeCategory(largeCategory);
 		partDTO.setMaker(maker);

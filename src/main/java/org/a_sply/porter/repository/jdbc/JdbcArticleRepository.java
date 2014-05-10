@@ -51,8 +51,7 @@ public class JdbcArticleRepository implements ArticleRepository {
 				return ps;
 			}
 		}, keyHolder);
-		System.out
-				.println("article save id : " + keyHolder.getKey().intValue());
+		System.out.println("article save id : " + keyHolder.getKey().intValue());
 		article.setId(keyHolder.getKey().intValue());
 
 		jdbcTemplate.update(
@@ -62,13 +61,12 @@ public class JdbcArticleRepository implements ArticleRepository {
 						.getPreview());
 
 		for (Image image : article.getPart().getImages()) {
-			jdbcTemplate.update("insert into articles_images values(?, ?)",
-					article.getId(), image.getOriginal());
+			jdbcTemplate.update("insert into articles_images values(?, ?, ?, ?)",
+					article.getId(), image.getOriginal(), image.getArticleThumbnail(), image.getArticleListThumbnail());
 		}
 
 		for (String keyword : article.getPart().getKeywords()) {
-			jdbcTemplate.update("insert into articles_keywords values(?, ?)",
-					article.getId(), keyword);
+			jdbcTemplate.update("insert into articles_keywords values(?, ?)", article.getId(), keyword);
 		}
 
 		return article;
@@ -116,9 +114,8 @@ public class JdbcArticleRepository implements ArticleRepository {
 
 	private void getImagesAndSetInfo(final int id, List<Article> articles) {
 		final String imageSQL = "select * from articles_images where article_id = ?";
-		List<String> imageNames = jdbcTemplate.query(
+		List<Image> images = jdbcTemplate.query(
 				new PreparedStatementCreator() {
-
 					@Override
 					public PreparedStatement createPreparedStatement(
 							Connection con) throws SQLException {
@@ -126,20 +123,15 @@ public class JdbcArticleRepository implements ArticleRepository {
 						ps.setInt(1, id);
 						return ps;
 					}
-				}, new RowMapper<String>() {
-
+				}, new RowMapper<Image>() {
 					@Override
-					public String mapRow(ResultSet rs, int rowNum)
-							throws SQLException {
-						return rs.getString("IMAGE");
+					public Image mapRow(ResultSet rs, int rowNum) throws SQLException {
+						String original = rs.getString("ORIGINAL");
+						String articleThumbnail = rs.getString("ARTICLE_THUMBNAIL");
+						String articleListThumbnail = rs.getString("ARTICLE_LIST_THUMBNAIL");
+						return new Image(original, articleThumbnail, articleListThumbnail);
 					}
 				});
-
-		List<Image> images = new ArrayList<Image>();
-
-		for (String imageName : imageNames) {
-			images.add(new Image(imageName, imageName, imageName));
-		}
 		articles.get(0).getPart().setImages(images);
 	}
 
@@ -171,8 +163,7 @@ public class JdbcArticleRepository implements ArticleRepository {
 			user.setName(rs.getString("USERS.NAME"));
 
 			Part part = new Part();
-			Description description = new Description(rs.getString("CONTENT"),
-					rs.getString("PREVIEW"));
+			Description description = new Description(rs.getString("CONTENT"), rs.getString("PREVIEW"));
 			part.setDescription(description);
 			part.setLargeCategory(rs.getString("LARGE_CATEGORY"));
 			part.setMaker(rs.getString("MAKER"));

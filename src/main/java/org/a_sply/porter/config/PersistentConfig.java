@@ -45,8 +45,12 @@ public class PersistentConfig {
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
 		basicDataSource.setUrl(environment.getProperty("jdbc.url"));
-		basicDataSource.setUsername(environment.getProperty("jdbc.username"));
-		basicDataSource.setPassword(environment.getProperty("jdbc.password"));
+		String username = environment.getProperty("jdbc.username");
+		System.out.println("username : "+username);
+		basicDataSource.setUsername(username);
+		String password = environment.getProperty("jdbc.password");
+		System.out.println("password : "+password);
+		basicDataSource.setPassword(password);
 		basicDataSource.setMaxActive(Integer.parseInt(environment.getProperty("jdbc.maxActive")));
 		basicDataSource.setMaxIdle(Integer.parseInt(environment.getProperty("jdbc.maxIdle")));
 		basicDataSource.setMinIdle(Integer.parseInt(environment.getProperty("jdbc.minIdle")));
@@ -89,8 +93,9 @@ public class PersistentConfig {
 	
 	private DatabasePopulator databasePopulator() {
 		final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-		System.out.println("init database");
-		if (Boolean.valueOf(environment.getProperty("jdbc.init.enabled"))) {
+		String isInit = environment.getProperty("jdbc.init.enabled");
+		System.out.println("init database : " + isInit);
+		if (Boolean.valueOf(isInit)) {
 			populator.addScript(schemaScript);
 			populator.addScript(dataScript);
 		}

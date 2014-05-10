@@ -8,7 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import javax.annotation.Resource;
 
 import org.a_sply.porter.config.CoreConfig;
-import org.a_sply.porter.config.MVCConfig;
 import org.a_sply.porter.config.SecurityConfig;
 import org.a_sply.porter.config.TestMVCConfig;
 import org.a_sply.porter.controller.UnitTestUtil;

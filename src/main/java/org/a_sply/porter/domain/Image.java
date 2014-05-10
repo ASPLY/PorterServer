@@ -8,8 +8,7 @@ public class Image {
 	private String articleThumbnail;		// auto part's thumbnail image url in article.
 	private String articleListThumbnail;	// auto part's thumbnail image url in article list.
 
-	public Image(String original, String articleThumbnail,
-			String articleListThumbnail) {
+	public Image(String original, String articleThumbnail, String articleListThumbnail) {
 		super();
 		this.original = original;
 		this.articleThumbnail = articleThumbnail;
@@ -44,7 +43,7 @@ public class Image {
 	}
 
 	public ImageDTO imageDTO() {
-		return null;
+		return new ImageDTO(original, articleThumbnail);
 	}
 
 }

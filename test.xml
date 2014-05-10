@@ -20,7 +20,9 @@
   </table>
   <table name="ARTICLES_IMAGES">
     <column>ARTICLE_ID</column>
-    <column>IMAGE</column>
+    <column>ORIGINAL</column>
+    <column>ARTICLE_THUMBNAIL</column>
+    <column>ARTICLE_LIST_THUMBNAIL</column>
   </table>
   <table name="ARTICLES_KEYWORDS">
     <column>ARTICLE_ID</column>

@@ -1,6 +1,8 @@
 package org.a_sply.porter.util;
 
 import java.io.File;
+import java.io.InputStream;
+import java.util.List;
 
 /**
  * ThumbnailMaker interface. 
@@ -19,6 +21,8 @@ public interface ThumbnailMaker {
 	 * @author LCH
 	 */
 
-	File[] make(String storageDir, File[] files, int size);
+	File[] makeAndSave(String storageDir, File[] files, int size);
+	File[] make(File[] files, int size);
+	List<InputStream> make(List<InputStream> inputStreams, int size);
 
 }

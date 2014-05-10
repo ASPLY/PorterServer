@@ -66,12 +66,15 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 	private List<ArticleList> searchOneCondition(Search search) {
 		if (search.getOffset() == null)
 			return jdbcTemplate
-					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles where REPLACE(articles.NAME,' ','') like ? ORDER BY ID DESC limit ?",
+					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL "
+							+ "from articles "
+							+ "where REPLACE(articles.NAME,' ','') "
+							+ "like ? ORDER BY ID DESC limit ?",
 							new Object[] { "%" + search.getKeyword() + "%",
 									search.getCount() }, articleListMapper);
 		else
 			return jdbcTemplate
-					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles where REPLACE(articles.NAME,' ','') like ? ORDER BY ID DESC limit ?, ?",
+					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL from articles where REPLACE(articles.NAME,' ','') like ? ORDER BY ID DESC limit ?, ?",
 							new Object[] { "%" + search.getKeyword() + "%",
 									search.getOffset(), search.getCount() },
 							articleListMapper);
@@ -80,8 +83,8 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 
 	private List<ArticleList> searchMutiCondition(Search search) {
 		String[] keywords = search.getKeyword().split(" ");
-		String selectSQL = "select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images "
-				+ "where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles ";
+		String selectSQL = "select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images "
+				+ "where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL from articles ";
 		String where = "where ";
 		for (int i = 0; i < keywords.length; i++) {
 			if (i != 0)
@@ -113,7 +116,7 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 		sqlRowSet.next();
 		final int userId = sqlRowSet.getInt("ID");
 
-		final String SQL = "select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles where USER_ID = ? ORDER BY ID DESC";
+		final String SQL = "select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL from articles where USER_ID = ? ORDER BY ID DESC";
 		List<ArticleList> articleLists = jdbcTemplate.query(
 				new PreparedStatementCreator() {
 
@@ -136,7 +139,7 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 			ArticleList articleList = new ArticleList();
 			articleList.setArticleId(rs.getInt("ID"));
 			articleList.setDescription(rs.getString("PREVIEW"));
-			articleList.setImageUrl(rs.getString("IMAGE"));
+			articleList.setImageUrl(rs.getString("ARTICLE_LIST_THUMBNAIL"));
 			articleList.setLargeCategory(rs.getString("LARGE_CATEGORY"));
 			articleList.setMiddleCategory(rs.getString("MIDDLE_CATEGORY"));
 			articleList.setName(rs.getString("NAME"));
@@ -161,13 +164,13 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 		int offset = getArticleLists.getOffset();
 		if (offset == 0)
 			return jdbcTemplate
-					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles where articles.LARGE_CATEGORY = ? and articles.MIDDLE_CATEGORY = ? ORDER BY ID DESC limit ?",
+					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL from articles where articles.LARGE_CATEGORY = ? and articles.MIDDLE_CATEGORY = ? ORDER BY ID DESC limit ?",
 							new Object[] { getArticleLists.getLargeCategory(),
 									getArticleLists.getMiddleCategory(), count },
 							articleListMapper);
 		else
 			return jdbcTemplate
-					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.IMAGE from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS IMAGE from articles where articles.LARGE_CATEGORY = ? and articles.MIDDLE_CATEGORY = ? ORDER BY ID DESC limit ?, ?",
+					.query("select articles.ID, articles.IS_SOLD, articles.MIDDLE_CATEGORY, articles.LARGE_CATEGORY, articles.NAME, articles.PRICE, (select articles_descriptions.PREVIEW from articles_descriptions where articles_descriptions.ARTICLE_ID = articles.ID) AS PREVIEW, (select articles_images.ARTICLE_LIST_THUMBNAIL from articles_images where articles_images.ARTICLE_ID = articles.ID limit 1) AS ARTICLE_LIST_THUMBNAIL from articles where articles.LARGE_CATEGORY = ? and articles.MIDDLE_CATEGORY = ? ORDER BY ID DESC limit ?, ?",
 							new Object[] { getArticleLists.getLargeCategory(),
 									getArticleLists.getMiddleCategory(),
 									offset, count }, articleListMapper);

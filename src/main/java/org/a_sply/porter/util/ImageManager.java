@@ -19,6 +19,6 @@ public interface ImageManager {
 	 * @author LCH
 	 */
 
-	List<Image> uploadImageAndMakeThumbnails(MultipartFile[] multipartFiles);
+	List<Image> upload(MultipartFile[] multipartFiles);
 
 }
