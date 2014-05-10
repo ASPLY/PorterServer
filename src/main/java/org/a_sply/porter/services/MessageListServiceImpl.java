@@ -11,6 +11,11 @@ import org.a_sply.porter.repository.MessageListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * MessageListService implementation. 
+ * @author LCH
+ */
+
 @Service
 public class MessageListServiceImpl implements MessageListService {
 

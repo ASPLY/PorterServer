@@ -2,8 +2,6 @@ package org.a_sply.porter.dto.user;
 
 import javax.validation.constraints.NotNull;
 
-import org.a_sply.porter.dto.email.CheckEmailDTO;
-
 public class CheckNameDTO {
 
 	@NotNull

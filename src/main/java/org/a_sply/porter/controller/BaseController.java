@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * @author Petri Kainulainen
+ * Process exception other controllers throws 
+ * @author LCH
  */
+
 public class BaseController {
 
 	private static final Logger LOGGER = LoggerFactory

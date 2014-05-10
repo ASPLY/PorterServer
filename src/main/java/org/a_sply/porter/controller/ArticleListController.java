@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Process request related to Article list 
+ * @author LCH
+ */
+
 @Controller
 @RequestMapping("/articleLists")
 public class ArticleListController extends BaseController {
@@ -23,6 +28,13 @@ public class ArticleListController extends BaseController {
 	@Autowired
 	private ArticleListService articleListService;
 
+	/**
+	 * Process request that find a article content.
+	 * @param searchPartListDTO searching condition.
+	 * @return a article list.
+	 * @author LCH
+	 */
+	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> search(SearchArticleListDTO searchPartListDTO) {
@@ -30,6 +42,13 @@ public class ArticleListController extends BaseController {
 		ArticleListsDTO articleListsDTO = articleListService.search(searchPartListDTO);
 		return new ResponseEntity<ArticleListsDTO>(articleListsDTO,HttpStatus.OK);
 	}
+	
+	/**
+	 * Process request that get a article content.
+	 * @param requestArticleListsDTO getting condition.
+	 * @return a article list.
+	 * @author LCH
+	 */
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
@@ -38,6 +57,12 @@ public class ArticleListController extends BaseController {
 		ArticleListsDTO articleListsDTO = articleListService.get(requestArticleListsDTO);
 		return new ResponseEntity<ArticleListsDTO>(articleListsDTO,HttpStatus.OK);
 	}
+	
+	/**
+	 * Process request that get user owned the articles.
+	 * @return a article list.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	@ResponseBody

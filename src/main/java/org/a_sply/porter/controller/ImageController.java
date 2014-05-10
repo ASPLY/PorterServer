@@ -15,18 +15,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Process request related to images. 
+ * @author LCH
+ */
+
 @Controller
 @RequestMapping(value = "/images")
 public class ImageController extends BaseController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ImageController.class);
 
+	/**
+	 * Process request that get original image in article.
+	 * @param name image name.
+	 * @return image byte.
+	 * @author LCH
+	 */
+	
 	@RequestMapping(value = "/original/{name}.jpg", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<byte[]> original(@PathVariable String name) {
 		LOGGER.debug("original : {}", name);
 		return getImage("/storage/images/original", name + ".jpg", MediaType.IMAGE_JPEG);
 	}
+	
+	/**
+	 * Process request that get thumbnail image in article.
+	 * @param name image name.
+	 * @return image byte.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/article_thumbnail/{name}.jpg", method = RequestMethod.GET)
 	@ResponseBody
@@ -34,6 +53,13 @@ public class ImageController extends BaseController {
 		LOGGER.debug("articleThumbnail : {}", name);
 		return getImage("/storage/images/article_thumbnail", name + ".jpg",MediaType.IMAGE_JPEG);
 	}
+	
+	/**
+	 * Process request that get thumbnail image in article list.
+	 * @param name image name.
+	 * @return image byte.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/article_list_thumbnail/{name}.jpg", method = RequestMethod.GET)
 	@ResponseBody

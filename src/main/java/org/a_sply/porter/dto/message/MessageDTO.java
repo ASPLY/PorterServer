@@ -1,7 +1,5 @@
 package org.a_sply.porter.dto.message;
 
-import java.util.Date;
-
 import org.a_sply.porter.dto.user.UserDTO;
 
 public class MessageDTO {

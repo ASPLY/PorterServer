@@ -4,11 +4,11 @@ import org.a_sply.porter.dto.article.ArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
 
 public class Article {
-
-	private int id;
-	private User user;
-	private Part part;
-	private boolean isSold;
+	
+	private int id;				// article id.
+	private User user;			// user information registering a article.
+	private Part part;			// auto part information.
+	private boolean isSold;		// auto part is sold or not sold.
 
 	public Article(User user, Part part) {
 		this.user = user;

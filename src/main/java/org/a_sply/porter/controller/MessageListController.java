@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Process request related to message list. 
+ * @author LCH
+ */
+
 @Controller
 @RequestMapping("/messageLists")
 public class MessageListController extends BaseController {
@@ -20,6 +25,12 @@ public class MessageListController extends BaseController {
 
 	@Autowired
 	private MessageListService messageListService;
+	
+	/**
+	 * Process request that get user owned the messages.
+	 * @return message list.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	@ResponseBody

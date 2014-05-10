@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.a_sply.porter.controller.UnitTestUtil;
 import org.a_sply.porter.domain.Image;
+import org.a_sply.porter.util.ImageManager;
+import org.a_sply.porter.util.ImageManagerImpl;
 import org.junit.Test;
 import org.springframework.web.multipart.MultipartFile;
 

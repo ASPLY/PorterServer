@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import java.io.File;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.util.ThumbnailMaker;
+import org.a_sply.porter.util.ThumbnailMakerImpl;
 import org.junit.Test;
 
 public class ThumbnailMakerTest {

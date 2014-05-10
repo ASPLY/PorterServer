@@ -7,10 +7,10 @@ import org.a_sply.porter.util.DateFormat;
 
 public class MessageList {
 
-	private int messageId;
-	private String from;
-	private String preview;
-	private Date sending;
+	private int messageId; 				// message id.
+	private String from;				// user to send message.
+	private String preview;				// message preview content.	
+	private Date sending;				// sending date.
 
 	public MessageList() {
 	}

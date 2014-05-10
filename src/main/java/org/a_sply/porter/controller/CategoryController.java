@@ -12,12 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Process request related to article category
+ * @author LCH
+ */
+
 @Controller
 @RequestMapping(value = "/categorys")
 public class CategoryController extends BaseController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 
+	/**
+	 * Process request that get a article categorys.
+	 * @return all category.
+	 * @author LCH
+	 */
+	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody

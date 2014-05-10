@@ -4,15 +4,15 @@ import org.a_sply.porter.dto.article_list.ArticleListDTO;
 
 public class ArticleList {
 
-	private int articleId;
+	private int articleId;					// article id.
 
-	private String largeCategory;
-	private String middleCategory;
-	private String name;
-	private String imageUrl;
-	private String price;
-	private String description;
-	private String isSold;
+	private String largeCategory;			// auto part large category.
+	private String middleCategory;			// auto part middle category.
+	private String name;					// auto part name.
+	private String imageUrl;				// auto part image url.
+	private String price;					// auto part price.
+	private String description;				// auto part description.
+	private String isSold;					// auto part is sold or not sold.
 
 	public ArticleListDTO articleListDTO() {
 		ArticleListDTO articleListDTO = new ArticleListDTO();

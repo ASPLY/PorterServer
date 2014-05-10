@@ -12,12 +12,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails {
 
-	private int id;
-	private String name;
-	private String email;
-	private String password;
-	private String telephone;
-	private Collection<? extends GrantedAuthority> authorities;
+	private int id;														// user id using in db.
+	private String name;												// name.	
+	private String email;												// email.		
+	private String password;											// password.	
+	private String telephone;											// telephone.	
+	private Collection<? extends GrantedAuthority> authorities;			// user authorities.
 	
 	public User() {
 	}

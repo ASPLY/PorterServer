@@ -2,10 +2,10 @@ package org.a_sply.porter.domain;
 
 public class Description {
 
-	private static final int PART_LIST_DES_LENGTH = 20;
+	private static final int PART_LIST_DES_LENGTH = 20;	// auto part preview description length limited.
 
-	private String content;
-	private String preview;
+	private String content;								// auto part full description.
+	private String preview;								// auto part preview description.
 
 	public Description() {
 	}

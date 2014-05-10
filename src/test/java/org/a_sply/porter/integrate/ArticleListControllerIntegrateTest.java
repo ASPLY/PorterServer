@@ -81,8 +81,7 @@ public class ArticleListControllerIntegrateTest {
 	@Test
 	public void search_성공_결과0개() throws Exception {
 		// when
-		SearchArticleListDTO searchPartListDTO = UnitTestUtil
-				.searchArticleListDTO("틀린검색어");
+		SearchArticleListDTO searchPartListDTO = UnitTestUtil.searchArticleListDTO("틀린검색어");
 
 		// givn
 		mockMvc.perform(

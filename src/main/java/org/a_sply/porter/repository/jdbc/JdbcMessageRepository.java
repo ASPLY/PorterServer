@@ -9,7 +9,6 @@ import java.util.List;
 import org.a_sply.porter.domain.Message;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.repository.MessageRepository;
-import org.a_sply.porter.util.CRC32Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;

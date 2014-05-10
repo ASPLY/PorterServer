@@ -4,16 +4,15 @@ import org.a_sply.porter.dto.article_list.RequestArticleListsDTO;
 
 public class RequestArticleLists {
 
-	private int count;
-	private int offset;
-	private int middleCategory;
-	private int largeCategory;
+	private int count;				// count of auto part wanted.
+	private int offset;				// offset, start point in auto parts.
+	private int middleCategory;		// middle category of auto part.
+	private int largeCategory;		// large category of auto part.
 
 	public RequestArticleLists() {
 	}
 
-	public RequestArticleLists(int count, int offset, int middleCategory,
-			int largeCategory) {
+	public RequestArticleLists(int count, int offset, int middleCategory, int largeCategory) {
 		super();
 		this.count = count;
 		this.offset = offset;

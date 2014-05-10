@@ -7,8 +7,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author Petri Kainulainen
+ * JavaConfig for testing environment  
  */
+
 @Configuration
 @ComponentScan(basePackages = { "org.a_sply.porter.controller"})
 @EnableWebMvc

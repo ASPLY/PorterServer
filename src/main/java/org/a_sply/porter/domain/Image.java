@@ -4,9 +4,9 @@ import org.a_sply.porter.dto.image.ImageDTO;
 
 public class Image {
 
-	private String original;
-	private String articleThumbnail;
-	private String articleListThumbnail;
+	private String original; 				// auto part's original image url in article.
+	private String articleThumbnail;		// auto part's thumbnail image url in article.
+	private String articleListThumbnail;	// auto part's thumbnail image url in article list.
 
 	public Image(String original, String articleThumbnail,
 			String articleListThumbnail) {

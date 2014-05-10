@@ -1,6 +1,5 @@
 package org.a_sply.porter.domain;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.a_sply.porter.dto.message.MessageDTO;
@@ -8,14 +7,14 @@ import org.a_sply.porter.util.DateFormat;
 
 public class Message {
 
-	private static final int MEG_LIST_PREVIEW_LENGTH = 20;
+	private static final int MEG_LIST_PREVIEW_LENGTH = 20;			// message preview content length limited.
 
-	private int id;
-	private User to;
-	private User from;
-	private String content;
-	private String preview;
-	private Date sending;
+	private int id;													// message id.
+	private User to;												// user to accept message.
+	private User from;												// user to send message.
+	private String content;											// message full content.
+	private String preview;											// message preview content.
+	private Date sending;											// sending date.
 
 	public Message(User to, User from, String content) {
 		super();

@@ -9,13 +9,18 @@ import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.article.ArticleDTO;
 import org.a_sply.porter.dto.article.CreateArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
-import org.a_sply.porter.model.ImageManager;
-import org.a_sply.porter.model.ImageManagerImpl;
 import org.a_sply.porter.repository.ArticleRepository;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.util.ImageManager;
+import org.a_sply.porter.util.ImageManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * ArticleService implementation. 
+ * @author LCH
+ */
 
 @Service
 @Transactional

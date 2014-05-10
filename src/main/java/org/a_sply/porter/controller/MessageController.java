@@ -2,7 +2,6 @@ package org.a_sply.porter.controller;
 
 import javax.validation.Valid;
 
-import org.a_sply.porter.domain.Message;
 import org.a_sply.porter.dto.message.MessageDTO;
 import org.a_sply.porter.dto.message.SendMessageDTO;
 import org.a_sply.porter.services.MessageService;
@@ -18,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Process request related to message. 
+ * @author LCH
+ */
+
 @Controller
 @SuppressWarnings("rawtypes")
 @RequestMapping("/messages")
@@ -27,6 +31,12 @@ public class MessageController extends BaseController {
 
 	@Autowired
 	private MessageService messageService;
+	
+	/**
+	 * Process request that send other user the message.
+	 * @param sendMessageDTO message content to send.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/send", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
@@ -35,6 +45,13 @@ public class MessageController extends BaseController {
 		LOGGER.debug("send : {}", sendMessageDTO);
 		messageService.send(sendMessageDTO);
 	}
+	
+	/**
+	 * Process request that get message content.
+	 * @param id message id.
+	 * @return message content.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
@@ -45,6 +62,12 @@ public class MessageController extends BaseController {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<MessageDTO>(requestMessageDTO, HttpStatus.OK);
 	}
+	
+	/**
+	 * Process request that delete user owned a message. 
+	 * @param id message id.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseBody

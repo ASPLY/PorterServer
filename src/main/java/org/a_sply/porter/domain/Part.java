@@ -10,17 +10,17 @@ import org.a_sply.porter.dto.part.PartDTO;
 
 public class Part {
 
-	private String name;
-	private String middleCategory;
-	private String largeCategory;
-	private List<String> keywords;
-	private String price;
-	private String maker;
-	private String state;
-	private String quantity;
-	private Description description;
-	private String region;
-	private List<Image> images;
+	private String name;						// auto part name.
+	private String middleCategory;				// auto part middle category.
+	private String largeCategory;				// auto part large category.
+	private List<String> keywords;				// auto part related keywords.
+	private String price;						// auto part price.
+	private String maker;						// auto part maker.
+	private String state;						// auto part state.
+	private String quantity;					// auto part quantity of selling.
+	private Description description;			// auto part description.	
+	private String region;						// auto part region of selling.
+	private List<Image> images;					// auto part image.
 
 	public String getName() {
 		return name;

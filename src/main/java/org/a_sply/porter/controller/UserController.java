@@ -18,6 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Process request related to user. 
+ * @author LCH
+ */
+
 @SuppressWarnings("rawtypes")
 @Controller
 @RequestMapping("users")
@@ -27,13 +32,26 @@ public class UserController extends BaseController {
 
 	@Autowired
 	private UserService userService;
+	
+	/**
+	 * Process request that register a new user. 
+	 * @param createUserDTO a new user information to register.
+	 * @return a registered user content.
+	 * @author LCH
+	 */
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public void create(@Valid CreateUserDTO createuserDTO) {
-		LOGGER.debug("create : {}", createuserDTO);
-		userService.createUser(createuserDTO);
+	public void create(@Valid CreateUserDTO createUserDTO) {
+		LOGGER.debug("create : {}", createUserDTO);
+		userService.createUser(createUserDTO);
 	}
+	
+	/**
+	 * Process request that check email duplication. 
+	 * @param checkEmailDTO email.
+	 * @author LCH
+	 */
 	
 	@RequestMapping(value = "/check/email", method = RequestMethod.POST)
 	@ResponseBody
@@ -45,6 +63,12 @@ public class UserController extends BaseController {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	/**
+	 * Process request that check name duplication. 
+	 * @param checkNameDTO name.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/check/name", method = RequestMethod.POST)
 	@ResponseBody
@@ -56,6 +80,12 @@ public class UserController extends BaseController {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	/**
+	 * Process request that login user. 
+	 * @param loginUserDTO user's id and password.
+	 * @author LCH
+	 */
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody

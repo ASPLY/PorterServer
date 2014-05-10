@@ -7,14 +7,22 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
- * @author Petri Kainulainen
+ * JavaConfig for Creating Messages beans
+ *
+ * @author LCH
  */
+
 @Configuration
 @Profile("webapp")
 public class MessageConfig {
 
 	private static final String MESSAGE_SOURCE_BASE_NAME = "i18n/messages";
 
+    /**
+     * Create messageSource Bean
+     * @return ResourceBundleMessageSource bean with MessageConfig's member variable, MESSAGE_SOURCE_BASE_NAME
+     */
+	
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.util.FileUploader;
+import org.a_sply.porter.util.FileUploaderImpl;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.junit.Test;

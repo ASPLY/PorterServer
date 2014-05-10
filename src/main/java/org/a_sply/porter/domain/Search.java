@@ -4,11 +4,11 @@ import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
 
 public class Search {
 
-	private String keyword;
-	private String largeCategory;
-	private String middleCategory;
-	private int count;
-	private String offset;
+	private String keyword;				// keyword of auto part wanted.
+	private String largeCategory;       // middle category of auto part.
+	private String middleCategory;      // large category of auto part. 
+	private int count;					// count of auto part wanted.
+	private String offset;				// offset, start point in auto parts.
 
 	public Search() {
 	}

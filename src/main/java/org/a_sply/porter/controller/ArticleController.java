@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Process request related to Article 
+ * @author LCH
+ */
+
 @SuppressWarnings("rawtypes")
 @Controller
 @RequestMapping("/articles")
@@ -27,6 +32,13 @@ public class ArticleController extends BaseController {
 	@Autowired
 	private ArticleService articleService;
 
+	/**
+	 * Process request that get a article content.
+	 * @param id article id
+	 * @return a article content. 
+	 * @author LCH
+	 */	
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> get(@PathVariable int id) {
@@ -36,6 +48,13 @@ public class ArticleController extends BaseController {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<ArticleDTO>(requestArticleDTO, HttpStatus.OK);
 	}
+	
+	/**
+	 * Process request that register a new article. 
+	 * @param createArticleDTO a new article information.
+	 * @return a registered article content.
+	 * @author LCH
+	 */
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
@@ -44,7 +63,7 @@ public class ArticleController extends BaseController {
 		CreatedArticleDTO createdArticleDTO = articleService.create(createArticleDTO);
 		return new ResponseEntity<CreatedArticleDTO>(createdArticleDTO, HttpStatus.OK);
 	}
-
+	
 	@RequestMapping(value = "/{id}/sold", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> sold(@PathVariable int id) {

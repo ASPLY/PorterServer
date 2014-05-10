@@ -16,9 +16,12 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
+
 /**
- * @author Petri Kainulainen
+ * WebApplicationInitializer implementation for making up servletContext. 
+ * @author LCH
  */
+
 public class WebAppInitializer implements WebApplicationInitializer {
 
 	private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
@@ -27,6 +30,11 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 	private static final String DISPATCHER_SERVLET_MAPPING = "/";
 
+	/**
+	 * Starting tomcat, execute at first  
+	 * @author LCH
+	 */
+	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		WebApplicationContext rootContext = createRootContext(servletContext);

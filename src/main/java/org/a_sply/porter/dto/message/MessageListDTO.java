@@ -1,6 +1,5 @@
 package org.a_sply.porter.dto.message;
 
-import java.util.Date;
 
 public class MessageListDTO {
 

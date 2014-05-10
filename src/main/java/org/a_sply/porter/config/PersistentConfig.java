@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -16,12 +15,12 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author Petri Kainulainen
+ * JavaConfig for creating db beans
  */
+
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:db/config.properties")
@@ -36,6 +35,11 @@ public class PersistentConfig {
 	@Value("classpath:db/init_sql/dummy.sql")
 	private Resource dataScript;
 
+	/**
+     * Create DataSource bean 
+     * @return DataSource bean
+     */
+	
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
@@ -49,17 +53,32 @@ public class PersistentConfig {
 
 		return basicDataSource;
 	}
+	
+	/**
+     * Create DataSourceTransactionManager bean 
+     * @return DataSourceTransactionManager bean
+     */
 
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
 	}
+	
+	/**
+     * Create JdbcTemplate bean 
+     * @return JdbcTemplate bean
+     */
 
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
 		return new JdbcTemplate(dataSource(), true);
 	}
 
+	/**
+     * Create DataSourceInitializer bean 
+     * @return DataSourceInitializer bean
+     */
+	
 	@Bean
 	public DataSourceInitializer dataSourceInitializer() {
 		final DataSourceInitializer initializer = new DataSourceInitializer();
@@ -67,7 +86,7 @@ public class PersistentConfig {
 		initializer.setDatabasePopulator(databasePopulator());
 		return initializer;
 	}
-
+	
 	private DatabasePopulator databasePopulator() {
 		final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
 		System.out.println("init database");
@@ -77,22 +96,4 @@ public class PersistentConfig {
 		}
 		return populator;
 	}
-
-	// @Autowired
-	// private SessionFactory sessionFactory;
-	//
-	// @Bean
-	// public static LocalSessionFactoryBean sessionFactory() {
-	// LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-	// ClassPathXmlApplicationContext ctx = new
-	// ClassPathXmlApplicationContext();
-	// sessionFactory.setConfigLocation(ctx.getResource("classpath:hibernate.cfg.xml"));
-	// sessionFactory.setAnnotatedClasses(new Class<?>[]{ApiKey.class});
-	// return sessionFactory;
-	// }
-	//
-	// @Bean
-	// public PlatformTransactionManager platformTransactionManager() {
-	// return new HibernateTransactionManager(sessionFactory);
-	// }
 }
