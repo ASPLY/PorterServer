@@ -11,7 +11,6 @@ import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.net.ftp.FTPClient;
-import org.springframework.data.mongodb.core.query.Update;
 
 public class FTPFileUploader implements FileUploader {
 

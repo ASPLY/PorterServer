@@ -1,4 +1,4 @@
-package org.a_sply.porter.services;
+package org.a_sply.porter.services.Impl;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import org.a_sply.porter.dto.article.CreateArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
 import org.a_sply.porter.repository.ArticleRepository;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.ArticleService;
+import org.a_sply.porter.services.AuthenticationService;
 import org.a_sply.porter.util.ImageManager;
 import org.a_sply.porter.util.ImageManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;

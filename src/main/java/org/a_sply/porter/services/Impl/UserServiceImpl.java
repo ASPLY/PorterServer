@@ -1,4 +1,4 @@
-package org.a_sply.porter.services;
+package org.a_sply.porter.services.Impl;
 
 import java.io.UnsupportedEncodingException;
 
@@ -8,6 +8,7 @@ import org.a_sply.porter.dto.user.CheckNameDTO;
 import org.a_sply.porter.dto.user.CreateUserDTO;
 import org.a_sply.porter.dto.user.LoginUserDTO;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.UserService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

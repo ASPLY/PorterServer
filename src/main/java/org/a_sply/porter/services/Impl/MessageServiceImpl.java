@@ -1,4 +1,4 @@
-package org.a_sply.porter.services;
+package org.a_sply.porter.services.Impl;
 
 import org.a_sply.porter.domain.Message;
 import org.a_sply.porter.domain.User;
@@ -6,6 +6,8 @@ import org.a_sply.porter.dto.message.MessageDTO;
 import org.a_sply.porter.dto.message.SendMessageDTO;
 import org.a_sply.porter.repository.MessageRepository;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.AuthenticationService;
+import org.a_sply.porter.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

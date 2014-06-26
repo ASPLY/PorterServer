@@ -1,5 +1,6 @@
 package org.a_sply.porter.config;
 
+import org.a_sply.porter.domain.CDNServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,5 +28,14 @@ public class CoreConfig {
 	@Bean
 	public PasswordEncoder passwordEncoder(){
 		return new StandardPasswordEncoder();
+	}
+	
+	@Bean
+	public CDNServer cDNServer(){
+		CDNServer server = new CDNServer();
+		server.setAccessUrl("http://sply.cdn3.cafe24.com");
+		server.setHost("iup.cdn3.cafe24.com");
+		server.login("sply", "digital02");
+		return server;
 	}
 }

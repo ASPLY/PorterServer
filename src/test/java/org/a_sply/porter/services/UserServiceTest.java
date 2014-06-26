@@ -13,6 +13,7 @@ import org.a_sply.porter.dto.user.CheckNameDTO;
 import org.a_sply.porter.dto.user.CreateUserDTO;
 import org.a_sply.porter.dto.user.LoginUserDTO;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.Impl.UserServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

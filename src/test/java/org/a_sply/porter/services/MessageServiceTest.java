@@ -9,6 +9,7 @@ import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.message.SendMessageDTO;
 import org.a_sply.porter.repository.MessageRepository;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.Impl.MessageServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

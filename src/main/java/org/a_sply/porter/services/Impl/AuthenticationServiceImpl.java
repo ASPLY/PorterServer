@@ -1,6 +1,7 @@
-package org.a_sply.porter.services;
+package org.a_sply.porter.services.Impl;
 
 import org.a_sply.porter.domain.User;
+import org.a_sply.porter.services.AuthenticationService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 

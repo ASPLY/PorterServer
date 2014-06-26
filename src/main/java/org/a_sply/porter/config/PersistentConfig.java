@@ -15,6 +15,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -76,6 +78,11 @@ public class PersistentConfig {
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
 		return new JdbcTemplate(dataSource(), true);
+	}
+	
+	@Bean
+	public KeyHolder KeyHolder(){
+		return new GeneratedKeyHolder();
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.a_sply.porter.dto.article_list.ArticleListsDTO;
 import org.a_sply.porter.dto.article_list.RequestArticleListsDTO;
 import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
 import org.a_sply.porter.repository.ArticleListRepository;
+import org.a_sply.porter.services.Impl.ArticleListSerivceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

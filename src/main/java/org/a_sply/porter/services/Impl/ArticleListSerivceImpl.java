@@ -1,4 +1,4 @@
-package org.a_sply.porter.services;
+package org.a_sply.porter.services.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,8 @@ import org.a_sply.porter.dto.article_list.ArticleListsDTO;
 import org.a_sply.porter.dto.article_list.RequestArticleListsDTO;
 import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
 import org.a_sply.porter.repository.ArticleListRepository;
+import org.a_sply.porter.services.ArticleListService;
+import org.a_sply.porter.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

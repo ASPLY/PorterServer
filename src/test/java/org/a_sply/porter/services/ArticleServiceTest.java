@@ -12,6 +12,7 @@ import org.a_sply.porter.dto.article.CreateArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
 import org.a_sply.porter.repository.ArticleRepository;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.services.Impl.ArticleServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

@@ -13,6 +13,7 @@ import org.a_sply.porter.domain.MessageList;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.message.MessageListsDTO;
 import org.a_sply.porter.repository.MessageListRepository;
+import org.a_sply.porter.services.Impl.MessageListServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

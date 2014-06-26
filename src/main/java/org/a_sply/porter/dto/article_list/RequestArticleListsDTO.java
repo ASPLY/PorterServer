@@ -10,8 +10,7 @@ public class RequestArticleListsDTO {
 	public RequestArticleListsDTO() {
 	}
 
-	public RequestArticleListsDTO(int largeCategory, int middleCategory,
-			int count, int offest) {
+	public RequestArticleListsDTO(int largeCategory, int middleCategory, int count, int offest) {
 		super();
 		this.largeCategory = largeCategory;
 		this.middleCategory = middleCategory;

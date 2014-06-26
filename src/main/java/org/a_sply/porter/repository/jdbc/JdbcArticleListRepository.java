@@ -2,7 +2,6 @@ package org.a_sply.porter.repository.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +10,11 @@ import org.a_sply.porter.domain.ArticleList;
 import org.a_sply.porter.domain.RequestArticleLists;
 import org.a_sply.porter.domain.Search;
 import org.a_sply.porter.repository.ArticleListRepository;
+import org.a_sply.porter.repository.jdbc.mapper.ArticleListMapper;
 import org.a_sply.porter.util.CRC32Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
@@ -25,7 +24,7 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private ArticleListMapper articleListMapper = new ArticleListMapper();
+	private final ArticleListMapper articleListMapper = ArticleListMapper.getInstance();
 
 	@Override
 	public List<ArticleList> search(Search search) {
@@ -132,7 +131,7 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 		return articleLists;
 	}
 
-	private class ArticleListMapper implements RowMapper<ArticleList> {
+	/*private class ArticleListMapper implements RowMapper<ArticleList> {
 
 		@Override
 		public ArticleList mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -151,7 +150,7 @@ public class JdbcArticleListRepository implements ArticleListRepository {
 			}
 			return articleList;
 		}
-	}
+	}*/
 
 	@Override
 	public List<ArticleList> get(RequestArticleLists getArticleLists) {
