@@ -1,0 +1,172 @@
+localhost-startStop-1> [2014-06-25 22:32:55] [DispatcherServlet] [467] [ERROR] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.ProductService org.a_sply.porter.controller.ProductController.productService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.ProductService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1146)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:505)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:459)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5033)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5317)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.ProductService org.a_sply.porter.controller.ProductController.productService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.ProductService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:517)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:286)
+	... 27 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.ProductService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:988)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:858)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:770)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:489)
+	... 29 more
+localhost-startStop-1> [2014-06-25 22:36:50] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 22:36:50] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 22:36:50] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 22:36:50] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 22:36:50] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+localhost-startStop-1> [2014-06-25 22:36:51] [DispatcherServlet] [467] [ERROR] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping found. Cannot map 'basketController' bean method 
+public org.springframework.http.ResponseEntity<org.a_sply.porter.dto.article_list.ArticleListsDTO> org.a_sply.porter.controller.BasketController.user()
+to {[/basket],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}: There is already 'basketController' bean method
+public void org.a_sply.porter.controller.BasketController.put(int) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1512)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:505)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:459)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5033)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5317)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping found. Cannot map 'basketController' bean method 
+public org.springframework.http.ResponseEntity<org.a_sply.porter.dto.article_list.ArticleListsDTO> org.a_sply.porter.controller.BasketController.user()
+to {[/basket],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}: There is already 'basketController' bean method
+public void org.a_sply.porter.controller.BasketController.put(int) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:172)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:146)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:108)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:88)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:163)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
+	... 26 more
+localhost-startStop-1> [2014-06-25 22:40:38] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 22:40:38] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 22:40:38] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 22:40:38] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 22:40:38] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 22:42:15] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@7a838285, groups=[Ljava.lang.Class;@4fee2899}} 
+http-bio-8080-exec-1> [2014-06-25 22:42:15] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@65eb8691, max=2147483647, groups=[Ljava.lang.Class;@49cfcddd}} 
+http-bio-8080-exec-1> [2014-06-25 22:42:15] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 22:42:15] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@9e23baf 
+localhost-startStop-1> [2014-06-25 22:48:52] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 22:48:52] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 22:48:52] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 22:48:52] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 22:48:52] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-2> [2014-06-25 22:55:03] [ProductController] [35] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@5fe3f95f 
+http-bio-8080-exec-3> [2014-06-25 22:55:27] [ProductController] [35] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@3886ef0a 
+localhost-startStop-1> [2014-06-25 22:59:01] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 22:59:01] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 22:59:01] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 22:59:01] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 22:59:01] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+localhost-startStop-1> [2014-06-25 23:02:09] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 23:02:09] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 23:02:09] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 23:02:09] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 23:02:09] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 23:02:53] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@534ce677, groups=[Ljava.lang.Class;@5daeb95a}} 
+http-bio-8080-exec-1> [2014-06-25 23:02:53] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@53c30e9c, max=2147483647, groups=[Ljava.lang.Class;@2af44eba}} 
+http-bio-8080-exec-1> [2014-06-25 23:02:53] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 23:02:54] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@6a16a2be 
+http-bio-8080-exec-2> [2014-06-25 23:02:59] [ProductController] [35] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@48497a52 
+localhost-startStop-1> [2014-06-25 23:10:04] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 23:10:04] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 23:10:04] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 23:10:04] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 23:10:04] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 23:10:16] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@4dc57b50, groups=[Ljava.lang.Class;@6022e913}} 
+http-bio-8080-exec-1> [2014-06-25 23:10:16] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@5f8bdda8, max=2147483647, groups=[Ljava.lang.Class;@57857199}} 
+http-bio-8080-exec-1> [2014-06-25 23:10:16] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 23:10:16] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@282ccc7a 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@61c2511e, groups=[Ljava.lang.Class;@1c5bbab6}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@13226fcd, groups=[Ljava.lang.Class;@39da058b}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@479b9ece, groups=[Ljava.lang.Class;@39d70b1c}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@1f77829e, groups=[Ljava.lang.Class;@5f206335}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@39306b65, groups=[Ljava.lang.Class;@19dad138}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@62b906b, groups=[Ljava.lang.Class;@161663f7}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@4f587b1a, groups=[Ljava.lang.Class;@39fa10a8}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@3c0fbcb4, groups=[Ljava.lang.Class;@2d2dec3a}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@663d7aff, groups=[Ljava.lang.Class;@4e562fc9}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@13099a39, groups=[Ljava.lang.Class;@5b6c1df2}} 
+http-bio-8080-exec-2> [2014-06-25 23:10:36] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@3da804f1, groups=[Ljava.lang.Class;@61dc89d6}} 
+localhost-startStop-1> [2014-06-25 23:12:36] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 23:12:36] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 23:12:36] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 23:12:36] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 23:12:36] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 23:12:55] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@cdbac1a, groups=[Ljava.lang.Class;@29ffe58e}} 
+http-bio-8080-exec-1> [2014-06-25 23:12:55] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@ea4d898, max=2147483647, groups=[Ljava.lang.Class;@6887eaaa}} 
+http-bio-8080-exec-1> [2014-06-25 23:12:55] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 23:12:55] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@1ed39256 
+http-bio-8080-exec-2> [2014-06-25 23:13:22] [ProductController] [37] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@4eb6358d 
+http-bio-8080-exec-3> [2014-06-25 23:13:56] [ProductController] [37] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@d74cb28 
+localhost-startStop-1> [2014-06-25 23:14:38] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 23:14:38] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 23:14:38] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 23:14:38] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 23:14:38] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 23:14:39] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@1435684e, groups=[Ljava.lang.Class;@3e52e33f}} 
+http-bio-8080-exec-1> [2014-06-25 23:14:39] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@4a4f1ab7, max=2147483647, groups=[Ljava.lang.Class;@f630a7e}} 
+http-bio-8080-exec-1> [2014-06-25 23:14:39] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 23:14:39] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@74b2c64f 
+http-bio-8080-exec-2> [2014-06-25 23:14:54] [ProductController] [37] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@696e2cb2 
+localhost-startStop-1> [2014-06-25 23:17:44] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-25 23:17:44] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-25 23:17:44] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-25 23:17:44] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-25 23:17:44] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-25 23:17:50] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, payload=[Ljava.lang.Class;@5dee330c, groups=[Ljava.lang.Class;@41598901}} 
+http-bio-8080-exec-1> [2014-06-25 23:17:50] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.Size.message}, min=1, payload=[Ljava.lang.Class;@1bed2df8, max=2147483647, groups=[Ljava.lang.Class;@7065031a}} 
+http-bio-8080-exec-1> [2014-06-25 23:17:50] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-1> [2014-06-25 23:17:50] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@1b4c947a 
+http-bio-8080-exec-2> [2014-06-25 23:18:07] [ProductController] [37] [DEBUG] create : org.a_sply.porter.dto.product.CreateProductDTO@bb49dea 
