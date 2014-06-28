@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 public interface UserService extends UserDetailsService {
 
-	void createUser(CreateUserDTO createUserDTO);
+	void create(CreateUserDTO createUserDTO);
 
 	boolean check(CheckEmailDTO checkEmailDTO);
 

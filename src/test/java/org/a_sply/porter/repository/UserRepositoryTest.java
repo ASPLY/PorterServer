@@ -30,8 +30,8 @@ public class UserRepositoryTest {
 
 	@Before
 	public void setUp() {
-		jdbcUserRepository.save(USER_D);
-		jdbcUserRepository.save(USER_E);
+		jdbcUserRepository.insert(USER_D);
+		jdbcUserRepository.insert(USER_E);
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public class UserRepositoryTest {
 
 	@Test
 	public void findByEmail_성공() {
-		User userD = jdbcUserRepository.findByEmail(USER_D.getEmail());
+		User userD = jdbcUserRepository.selectByEmail(USER_D.getEmail());
 		System.out.println(userD.getEmail());
 		assertThat(userD, is(USER_D));
 	}

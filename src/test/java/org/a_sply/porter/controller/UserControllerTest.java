@@ -66,7 +66,7 @@ public class UserControllerTest {
 						.param(PASSWORD, CORRECT_PASSWORD)
 						.param(TELEPHONE, _010_555_1111))
 				.andExpect(status().isOk()).andDo(print());
-		verify(userService, times(1)).createUser(
+		verify(userService, times(1)).create(
 				Mockito.any(CreateUserDTO.class));
 	}
 
@@ -81,7 +81,7 @@ public class UserControllerTest {
 						content().contentType(
 								UnitTestUtil.APPLICATION_JSON_UTF8))
 				.andDo(print());
-		verify(userService, times(0)).createUser(
+		verify(userService, times(0)).create(
 				Mockito.any(CreateUserDTO.class));
 	}
 
@@ -97,7 +97,7 @@ public class UserControllerTest {
 						content().contentType(
 								UnitTestUtil.APPLICATION_JSON_UTF8))
 				.andDo(print());
-		verify(userService, times(0)).createUser(
+		verify(userService, times(0)).create(
 				Mockito.any(CreateUserDTO.class));
 	}
 
@@ -113,7 +113,7 @@ public class UserControllerTest {
 						content().contentType(
 								UnitTestUtil.APPLICATION_JSON_UTF8))
 				.andDo(print());
-		verify(userService, times(0)).createUser(
+		verify(userService, times(0)).create(
 				Mockito.any(CreateUserDTO.class));
 	}
 
@@ -129,7 +129,7 @@ public class UserControllerTest {
 						content().contentType(
 								UnitTestUtil.APPLICATION_JSON_UTF8))
 				.andDo(print());
-		verify(userService, times(0)).createUser(
+		verify(userService, times(0)).create(
 				Mockito.any(CreateUserDTO.class));
 	}
 

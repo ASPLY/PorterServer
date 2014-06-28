@@ -44,7 +44,7 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public void create(@Valid CreateUserDTO createUserDTO) {
 		LOGGER.debug("create : {}", createUserDTO);
-		userService.createUser(createUserDTO);
+		userService.create(createUserDTO);
 	}
 	
 	/**

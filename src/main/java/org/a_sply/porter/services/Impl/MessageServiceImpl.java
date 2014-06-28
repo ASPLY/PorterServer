@@ -34,7 +34,7 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public void send(SendMessageDTO sendMessageDTO) {
 		User from = authenticationService.getCurrentUser();
-		User to = userRepository.findByName(sendMessageDTO.getTo());
+		User to = userRepository.selectByName(sendMessageDTO.getTo());
 		Message message = new Message(to, from, sendMessageDTO.getContent());
 		messageRository.save(message);
 	}

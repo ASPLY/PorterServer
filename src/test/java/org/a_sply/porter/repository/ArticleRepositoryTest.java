@@ -34,7 +34,7 @@ public class ArticleRepositoryTest {
 	@Before
 	public void setUp() {
 		User userA = UnitTestUtil.userA();
-		userRepository.save(userA);
+		userRepository.insert(userA);
 
 		articleA = UnitTestUtil.article(userA, UnitTestUtil.partA());
 		articleA = articleRepository.save(articleA);

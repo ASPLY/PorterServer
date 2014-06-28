@@ -2,6 +2,7 @@ package org.a_sply.porter.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.a_sply.porter.dto.user.CreateUserDTO;
 import org.a_sply.porter.dto.user.LoginUserDTO;

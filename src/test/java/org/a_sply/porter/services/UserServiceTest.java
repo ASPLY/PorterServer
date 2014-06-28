@@ -43,10 +43,10 @@ public class UserServiceTest {
 		CreateUserDTO createUserDTO = UnitTestUtil.createUserADTO();
 
 		// given
-		userService.createUser(createUserDTO);
+		userService.create(createUserDTO);
 
 		// then
-		verify(userRepository, times(1)).save(User.from(createUserDTO));
+		verify(userRepository, times(1)).insert(User.from(createUserDTO));
 	}
 
 	@Test
@@ -116,7 +116,7 @@ public class UserServiceTest {
 		// when
 		LoginUserDTO loginUserDTO = UnitTestUtil.loginUserDTO();
 		User userA = UnitTestUtil.userA();
-		when(userRepository.findByEmail(loginUserDTO.getEmail())).thenReturn(userA);
+		when(userRepository.selectByEmail(loginUserDTO.getEmail())).thenReturn(userA);
 		when(passwordEncoder.matches(loginUserDTO.getPassword(), userA.getPassword())).thenReturn(true);
 
 		// given
@@ -124,7 +124,7 @@ public class UserServiceTest {
 
 		// then
 		assertThat(isExist, is(true));
-		verify(userRepository).findByEmail(loginUserDTO.getEmail());
+		verify(userRepository).selectByEmail(loginUserDTO.getEmail());
 		verify(passwordEncoder).matches(loginUserDTO.getPassword(), userA.getPassword());
 	}
 
@@ -133,7 +133,7 @@ public class UserServiceTest {
 		// when
 		LoginUserDTO loginUserDTO = UnitTestUtil.loginUserDTO();
 		User userA = UnitTestUtil.userA();
-		when(userRepository.findByEmail(loginUserDTO.getEmail())).thenReturn(userA);
+		when(userRepository.selectByEmail(loginUserDTO.getEmail())).thenReturn(userA);
 		when(passwordEncoder.matches(loginUserDTO.getPassword(), userA.getPassword())).thenReturn(false);
 
 
@@ -142,7 +142,7 @@ public class UserServiceTest {
 
 		// then
 		assertThat(isExist, is(false));
-		verify(userRepository).findByEmail(loginUserDTO.getEmail());
+		verify(userRepository).selectByEmail(loginUserDTO.getEmail());
 		verify(passwordEncoder).matches(loginUserDTO.getPassword(), userA.getPassword());
 	}
 }

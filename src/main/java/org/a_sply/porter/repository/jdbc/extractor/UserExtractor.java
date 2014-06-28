@@ -19,22 +19,51 @@ public class UserExtractor implements ResultSetExtractor<User> {
 
 	@Override
 	public User extractData(ResultSet rs) throws SQLException, DataAccessException {
-		User user = null;
-		Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-		
-		while(rs.next()){
-			if(user == null)
-				user = new User(
-						rs.getInt(USERS.ID()), 
-						rs.getString(USERS.NAME()), 
-						rs.getString(USERS.EMAIL()), 
-						rs.getString(USERS.TELEPHONE()), 
-						rs.getString(USERS.PASSWORD()), null);
-			authorities.add(new SimpleGrantedAuthority(rs.getString(USERS_AUTHORITIES.AUTHORITY())));
-		}
-		 
-		user.setAuthorities(authorities);
-		return user;
-	}
 
+		System.out.println("current row : "+rs.getRow());
+		Long nextRowId = null;
+		Long id = null;
+		
+		String name = null;
+		String email = null;
+		String telephone = null;
+		String password = null;
+		
+		Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+
+		int processedRowCount = 0;
+		if(!rs.next())
+			return null;
+		else
+			do{
+				nextRowId = rs.getLong(USERS.ID());
+	        	if(id != null && id != nextRowId){
+	        		rs.previous();
+	        		break;
+	        	}
+	        	
+	        	if(name == null)
+	        		name = rs.getString(USERS.NAME());
+	        	
+	        	if(email == null)
+	        		email = rs.getString(USERS.EMAIL());
+	        	
+	        	if(telephone == null)
+	        		telephone = rs.getString(USERS.TELEPHONE());
+	        	
+	        	if(password == null)
+	        		password = rs.getString(USERS.PASSWORD());
+	        	
+				authorities.add(new SimpleGrantedAuthority(rs.getString(USERS_AUTHORITIES.AUTHORITY())));
+				
+	        	id = nextRowId;
+	        	
+	        	processedRowCount++;
+			}while(rs.next());			
+		
+		System.out.println("processed row : "+rs.getRow());
+		rs.relative(-processedRowCount);
+		System.out.println("relative row : "+rs.getRow());
+		return new User(id.intValue(), name, email, telephone, password, authorities);
+	}
 }

@@ -52,7 +52,7 @@ public class JdbcArticleRepository implements ArticleRepository {
 		}, keyHolder);
 		System.out.println("article save id : " + keyHolder.getKey().intValue());
 		article.setId(keyHolder.getKey().intValue());
-
+ 
 		jdbcTemplate.update(
 				"insert into articles_descriptions values(?, ?, ?)",
 				article.getId(), article.getPart().getDescription()

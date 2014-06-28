@@ -1,42 +1,59 @@
 package org.a_sply.porter.repository.jdbc;
 
+import static org.a_sply.porter.repository.table_info.TableConst.PRODUCTS;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.repository.UserRepository;
+import org.a_sply.porter.repository.jdbc.extractor.UserExtractor;
 import org.a_sply.porter.util.CRC32Util;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
+
+import static org.a_sply.porter.repository.table_info.TableConst.*;
 
 @Repository
 public class JdbcUserRepository implements UserRepository {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+	
+	@Autowired
+	private KeyHolder keyHolder;
+	
 	private UserMapper userMapper = new UserMapper();
 
 	@Override
-	public User save(final User user) {
-		final String userInsertSQL = "INSERT INTO users(NAME, NAME_CRC, EMAIL, EMAIL_CRC, PASSWORD, TELEPHONE) VALUES (?,?,?,?,?,?)";
+	public int insert(final User user) {
+		final String INSERT_SQL_1 = new SQL(){{
+			INSERT_INTO(USERS.toString());
+			VALUES(USERS.NAME(), 			"?"); // 1
+			VALUES(USERS.NAME_CRC(),	 	"?"); // 2
+			VALUES(USERS.EMAIL(),	 		"?"); // 3
+			VALUES(USERS.EMAIL_CRC(),	 	"?"); // 4
+			VALUES(USERS.PASSWORD(), 		"?"); // 5
+			VALUES(USERS.TELEPHONE(),		"?"); // 6
+		}}.toString();
 
 		jdbcTemplate.update(new PreparedStatementCreator() {
-			public PreparedStatement createPreparedStatement(
-					Connection connection) throws SQLException {
-				PreparedStatement ps = connection.prepareStatement(userInsertSQL,
-						new String[] { "id" });
+			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+				PreparedStatement ps = connection.prepareStatement(INSERT_SQL_1, new String[] { "id" });
 				ps.setString(1, user.getName());
 				ps.setInt(2, CRC32Util.crcValue(user.getName()));
 				ps.setString(3, user.getEmail());
@@ -47,14 +64,29 @@ public class JdbcUserRepository implements UserRepository {
 			}
 		}, keyHolder);
 		
-		user.setId(keyHolder.getKey().intValue());
+		final int id = keyHolder.getKey().intValue();
 		
-		for (GrantedAuthority authority : user.getAuthorities()) {
-			jdbcTemplate.update("insert into users_authorities values(?, ?)", user.getId(), authority.getAuthority());
-		}
+		final String INSERT_SQL_2 = new SQL(){{
+			INSERT_INTO(USERS_AUTHORITIES.toString());
+			VALUES(USERS_AUTHORITIES.USER_ID(), 		"?"); // 1
+			VALUES(USERS_AUTHORITIES.AUTHORITY(),		 "?"); // 2
+		}}.toString();
+		
+		jdbcTemplate.batchUpdate(INSERT_SQL_2, new BatchPreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement ps, int i) throws SQLException {
+				ps.setInt(1, id);
+				ps.setString(2, user.getAuthorities().toArray()[i].toString());
+			}
+			
+			@Override
+			public int getBatchSize() {
+				return user.getAuthorities().size();
+			}
+		});
 		
 		System.out.println("user save id : " + keyHolder.getKey().intValue());
-		return user;
+		return id;
 	}
 
 	@Override
@@ -86,7 +118,7 @@ public class JdbcUserRepository implements UserRepository {
 	}
 
 	@Override
-	public User findByEmail(final String email) {
+	public User selectByEmail(final String email) {
 		final String SQL = "select * from users where EMAIL_CRC = ? and EMAIL = ?";
 
 		List<User> users = jdbcTemplate.query(new PreparedStatementCreator() {
@@ -108,7 +140,7 @@ public class JdbcUserRepository implements UserRepository {
 	}
 
 	@Override
-	public User findByName(final String name) {
+	public User selectByName(final String name) {
 		final String SQL = "select * from users where NAME_CRC = ? and NAME = ?";
 
 		List<User> users = jdbcTemplate.query(new PreparedStatementCreator() {
@@ -146,5 +178,16 @@ public class JdbcUserRepository implements UserRepository {
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new User(rs.getInt("id"), rs.getString("NAME"), rs.getString("EMAIL"), rs.getString("TELEPHONE"), rs.getString("PASSWORD"), null);
 		}
+	}
+
+	@Override
+	public User selectById(final int id) {
+		final String SELECT_BY_ID = new SQL(){{
+			SELECT("*");
+			FROM(USERS.toString());
+			LEFT_OUTER_JOIN(USERS_AUTHORITIES.toString() + " on " + USERS_AUTHORITIES.USER_ID() + " = " + USERS.ID());
+			WHERE(USERS.ID() +" = "+ id);
+		}}.toString();
+		return jdbcTemplate.query(SELECT_BY_ID, new UserExtractor());
 	}
 }

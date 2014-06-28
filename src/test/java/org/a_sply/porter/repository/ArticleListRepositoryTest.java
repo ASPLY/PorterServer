@@ -40,7 +40,7 @@ public class ArticleListRepositoryTest {
 	@Before
 	public void setUp() {
 		User userA = UnitTestUtil.userA();
-		userRepository.save(userA);
+		userRepository.insert(userA);
 
 		articleA = UnitTestUtil.article(userA, UnitTestUtil.partA());
 		articleA = jdbcArticleRepository.save(articleA);

@@ -37,11 +37,11 @@ public class MessageRepositoryTest {
 
 	@Before
 	public void setUp() {
-		userRepository.save(UnitTestUtil.userA());
-		userA = userRepository.findByEmail(UnitTestUtil.userA().getEmail());
+		userRepository.insert(UnitTestUtil.userA());
+		userA = userRepository.selectByEmail(UnitTestUtil.userA().getEmail());
 
-		userRepository.save(UnitTestUtil.userB());
-		userB = userRepository.findByEmail(UnitTestUtil.userB().getEmail());
+		userRepository.insert(UnitTestUtil.userB());
+		userB = userRepository.selectByEmail(UnitTestUtil.userB().getEmail());
 
 	}
 

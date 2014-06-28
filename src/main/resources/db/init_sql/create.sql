@@ -4,6 +4,7 @@ DROP TABLE if exists articles_images;
 DROP TABLE if exists articles_keywords;
 DROP TABLE if exists api_keys;
 DROP TABLE if exists articles;
+DROP TABLE if exists orders;
 DROP TABLE if exists users_authorities;
 DROP TABLE if exists users_basket;
 DROP TABLE if exists users;
@@ -62,6 +63,18 @@ CREATE TABLE `products_state` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
+
+CREATE TABLE `orders` (
+  `ID` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(11) NOT NULL,
+  `PRODUCT_ID` bigint(20) DEFAULT NULL,
+  `AMOUNT` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `USER_ID` (`USER_ID`),
+  KEY `PRODUCT_ID` (`PRODUCT_ID`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `products` (`ID`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `articles` (
 	`ID` INT(10) NOT NULL AUTO_INCREMENT,

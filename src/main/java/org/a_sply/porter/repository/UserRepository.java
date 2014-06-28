@@ -4,16 +4,14 @@ import org.a_sply.porter.domain.User;
 
 public interface UserRepository {
 
-	User save(User user);
-
+	int insert(User user);
+	
 	boolean containsEmail(String email);
-
 	boolean contains(User user);
-
-	User findByEmail(String email);
-
+	
 	boolean containsName(String name);
-
-	User findByName(String name);
-
+	
+	User selectByEmail(String email);
+	User selectById(int id);
+	User selectByName(String name);
 }

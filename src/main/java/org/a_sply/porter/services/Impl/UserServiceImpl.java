@@ -33,12 +33,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public void createUser(CreateUserDTO createUserDTO) {
-		String password = createUserDTO.getPassword();
-		createUserDTO.setPassword(passwordEncoder.encode(password));
-		User user = User.from(createUserDTO);
+	public void create(CreateUserDTO createUserDTO) {
+		String name = createUserDTO.getName();				
+		String email = createUserDTO.getEmail();														
+		String password = passwordEncoder.encode(createUserDTO.getPassword());						
+		String telephone = createUserDTO.getTelephone();											
+		User user = new User(name, email, telephone, password);
 		System.out.println(buildBasicAuthHeaderValue(createUserDTO.getEmail(), createUserDTO.getPassword()));
-		userRepository.save(user);
+		userRepository.insert(user);
 	}
 
 	@Override
@@ -51,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean login(LoginUserDTO loginUserDTO) {
-		UserDetails userDetails = userRepository.findByEmail(loginUserDTO.getEmail());
+		UserDetails userDetails = userRepository.selectByEmail(loginUserDTO.getEmail());
 		if(userDetails == null)
 			return false;
 		return passwordEncoder.matches(loginUserDTO.getPassword(), userDetails.getPassword());
@@ -70,7 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User findByEmail = userRepository.findByEmail(username);
+		User findByEmail = userRepository.selectByEmail(username);
 		return findByEmail;
 	}
 

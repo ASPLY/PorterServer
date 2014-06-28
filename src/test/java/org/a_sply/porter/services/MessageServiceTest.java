@@ -41,8 +41,8 @@ public class MessageServiceTest {
 		// when
 		SendMessageDTO sendMessageDTO = UnitTestUtil.sendMessageDTO();
 		User userA = UnitTestUtil.userA();
-		when(userRepository.findByEmail("kd980311@naver.com")).thenReturn(userA);
-		when(userRepository.findByName(sendMessageDTO.getTo())).thenReturn(UnitTestUtil.userB());
+		when(userRepository.selectByEmail("kd980311@naver.com")).thenReturn(userA);
+		when(userRepository.selectByName(sendMessageDTO.getTo())).thenReturn(UnitTestUtil.userB());
 		when(authenticationService.getCurrentUser()).thenReturn(userA);
 
 		// given

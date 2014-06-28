@@ -2,9 +2,7 @@ package org.a_sply.porter.dto.product;
 
 import java.util.List;
 
-import javax.validation.constraints.Min;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CreateProductDTO {

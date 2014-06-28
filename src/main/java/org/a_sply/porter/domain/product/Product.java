@@ -18,6 +18,7 @@ public class Product {
 	private String state;
 	
 	private Product(Builder b) {
+		this.id = b.id;
 		this.owner = b.owner;
 		this.carInfo = b.carInfo;
 		this.partType = b.partType;
@@ -27,7 +28,6 @@ public class Product {
 		this.imageUrls = b.imageUrls;
 		this.state = b.state;
 	}
-	
 	public long getId() {
 		return id;
 	}

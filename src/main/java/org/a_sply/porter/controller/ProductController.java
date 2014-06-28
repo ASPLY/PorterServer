@@ -2,9 +2,14 @@ package org.a_sply.porter.controller;
 
 import javax.validation.Valid;
 
+import org.a_sply.porter.dto.product.CountProductDTO;
+import org.a_sply.porter.dto.product.CountedProductDTO;
 import org.a_sply.porter.dto.product.CreateProductDTO;
 import org.a_sply.porter.dto.product.CreatedProductDTO;
+import org.a_sply.porter.dto.product.RequestProductDTO;
 import org.a_sply.porter.dto.product.RequestedProductDTO;
+import org.a_sply.porter.dto.product.SearchProductDTO;
+import org.a_sply.porter.dto.product.SearchedProductDTO;
 import org.a_sply.porter.services.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,13 +48,38 @@ public class ProductController extends BaseController {
 	
 	@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<?> request(@PathVariable int productId) {
+	public ResponseEntity<?> request(@PathVariable long productId) {
 		LOGGER.debug("request : {}", productId);
-		RequestedProductDTO requestedProductDTO = productService.get(productId);
+		RequestedProductDTO requestedProductDTO = productService.request(new RequestProductDTO(productId));
 		if (requestedProductDTO == null)
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<RequestedProductDTO>(requestedProductDTO, HttpStatus.OK);
 	}
 	
-
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> search(@Valid SearchProductDTO searchProductDTO) {
+		LOGGER.debug("search : {}", searchProductDTO);
+		SearchedProductDTO searchedProductDTO = productService.search(searchProductDTO); 
+		return searchedProductDTO == null ? 
+				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<SearchedProductDTO>(searchedProductDTO, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/count", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> count(@Valid CountProductDTO countProductDTO) {
+		LOGGER.debug("count : {}", countProductDTO);
+		CountedProductDTO countedProductDTO = productService.count(countProductDTO);
+		return new ResponseEntity<CountedProductDTO>(countedProductDTO, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/mine", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> mine() {
+		LOGGER.debug("mine product");
+		SearchedProductDTO searchedProductDTO = productService.search(); 
+		return searchedProductDTO == null ? 
+				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<SearchedProductDTO>(searchedProductDTO, HttpStatus.OK);
+	}
+	
 }
