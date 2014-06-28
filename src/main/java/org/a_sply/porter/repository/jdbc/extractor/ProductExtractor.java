@@ -62,7 +62,6 @@ public class ProductExtractor implements ResultSetExtractor<Product> {
 	        	if(owner==null && extractType == ExtractType.WITH_DETAIL){
 	        		rs.previous();
 	        		owner = userExtractor.extractData(rs);
-	        		rs.previous();
 	        	}else
 	        		owner = new User();
 
