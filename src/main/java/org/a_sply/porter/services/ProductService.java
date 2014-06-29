@@ -1,18 +1,15 @@
 package org.a_sply.porter.services;
 
-import org.a_sply.porter.dto.product.CountProductDTO;
-import org.a_sply.porter.dto.product.CountedProductDTO;
-import org.a_sply.porter.dto.product.CreateProductDTO;
-import org.a_sply.porter.dto.product.CreatedProductDTO;
-import org.a_sply.porter.dto.product.RequestProductDTO;
-import org.a_sply.porter.dto.product.RequestedProductDTO;
-import org.a_sply.porter.dto.product.SearchProductDTO;
-import org.a_sply.porter.dto.product.SearchedProductDTO;
+import java.util.List;
+
+import org.a_sply.porter.domain.product.MultipartImageFile;
+import org.a_sply.porter.domain.product.Product;
+import org.a_sply.porter.domain.product.ProductCondition;
 
 public interface ProductService {
-	CreatedProductDTO create(CreateProductDTO createProductDTO);
-	RequestedProductDTO request(RequestProductDTO requestProductDTO);
-	SearchedProductDTO search();
-	SearchedProductDTO search(SearchProductDTO searchProductDTO);
-	CountedProductDTO count(CountProductDTO countProductDTO);
+	void create(Product product, MultipartImageFile multipartImageFile);
+	Product get(long productId);
+	List<Product> getMine(ProductCondition productCondition);
+	List<Product> search(ProductCondition productCondition);
+	int count(ProductCondition productCondition);
 }

@@ -1,40 +1,404 @@
-localhost-startStop-1> [2014-06-28 08:31:30] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:31:30] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:31:30] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:31:30] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:31:30] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-localhost-startStop-1> [2014-06-28 08:31:55] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:31:55] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:31:55] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:31:55] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:31:55] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-http-bio-8080-exec-1> [2014-06-28 08:31:58] [ProductController] [52] [DEBUG] request : 1 
-localhost-startStop-1> [2014-06-28 08:41:32] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:41:32] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:41:32] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:41:32] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:41:32] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-http-bio-8080-exec-1> [2014-06-28 08:41:33] [ProductController] [52] [DEBUG] request : 1 
-http-bio-8080-exec-2> [2014-06-28 08:41:38] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@7765009c 
-http-bio-8080-exec-3> [2014-06-28 08:41:42] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@496770af 
-http-bio-8080-exec-4> [2014-06-28 08:42:12] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@1b6b73bb 
-http-bio-8080-exec-5> [2014-06-28 08:42:19] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@12d1fd23 
-http-bio-8080-exec-6> [2014-06-28 08:42:41] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@f9bdebe 
-localhost-startStop-1> [2014-06-28 08:44:25] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:44:25] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:44:25] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:44:25] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:44:25] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-http-bio-8080-exec-1> [2014-06-28 08:44:32] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@65e16155 
-localhost-startStop-1> [2014-06-28 08:45:33] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:45:33] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:45:33] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:45:33] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:45:33] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-http-bio-8080-exec-1> [2014-06-28 08:45:33] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@67241bf8 
-localhost-startStop-1> [2014-06-28 08:46:57] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
-localhost-startStop-1> [2014-06-28 08:46:57] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
-localhost-startStop-1> [2014-06-28 08:46:57] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
-localhost-startStop-1> [2014-06-28 08:46:57] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
-localhost-startStop-1> [2014-06-28 08:46:57] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
-http-bio-8080-exec-1> [2014-06-28 08:46:58] [ProductController] [62] [DEBUG] search : org.a_sply.porter.dto.product.SearchProductDTO@39710e96 
+localhost-startStop-1> [2014-06-29 15:46:51] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 15:46:51] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 15:46:51] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 15:46:51] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 15:46:51] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 15:47:24] [ProductController] [40] [DEBUG] create : org.a_sply.porter.domain.Product2@73530584 
+http-bio-8080-exec-2> [2014-06-29 15:48:33] [ProductController] [40] [DEBUG] create : org.a_sply.porter.domain.Product2@bcc783f 
+localhost-startStop-1> [2014-06-29 15:55:04] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 15:55:04] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 15:55:04] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 15:55:04] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 15:55:04] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:00:21] [ProductController] [42] [DEBUG] create : org.a_sply.porter.domain.Product2@2d7ec3f0 
+localhost-startStop-1> [2014-06-29 16:03:19] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:03:19] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:03:19] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:03:19] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:03:19] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:03:40] [ProductController] [42] [DEBUG] create : org.a_sply.porter.domain.Product2@17cddfba 
+localhost-startStop-1> [2014-06-29 16:05:14] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:05:14] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:05:14] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:05:14] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:05:14] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:05:16] [ProductController] [50] [DEBUG] request : 1 
+localhost-startStop-1> [2014-06-29 16:06:27] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:06:27] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:06:27] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:06:27] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:06:27] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:06:31] [ProductController] [50] [DEBUG] request : 1 
+localhost-startStop-1> [2014-06-29 16:07:51] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:07:51] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:07:51] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:07:51] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:07:51] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:07:55] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-2> [2014-06-29 16:08:46] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-3> [2014-06-29 16:08:47] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-4> [2014-06-29 16:08:48] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-5> [2014-06-29 16:08:48] [ProductController] [50] [DEBUG] request : 1 
+localhost-startStop-1> [2014-06-29 16:09:43] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:09:43] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:09:43] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:09:43] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:09:43] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:09:44] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-2> [2014-06-29 16:09:46] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-3> [2014-06-29 16:09:46] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-4> [2014-06-29 16:09:47] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-5> [2014-06-29 16:09:47] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-6> [2014-06-29 16:09:48] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-7> [2014-06-29 16:09:48] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-8> [2014-06-29 16:09:48] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-9> [2014-06-29 16:09:49] [ProductController] [50] [DEBUG] request : 1 
+http-bio-8080-exec-10> [2014-06-29 16:09:52] [ProductController] [60] [DEBUG] search : org.a_sply.porter.domain.Product2Condition@de6bc02 
+http-bio-8080-exec-10> [2014-06-29 16:10:02] [ProductController] [60] [DEBUG] search : org.a_sply.porter.domain.Product2Condition@44c11b58 
+http-bio-8080-exec-10> [2014-06-29 16:10:16] [ProductController] [69] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@2d752c9c 
+http-bio-8080-exec-3> [2014-06-29 16:10:18] [ProductController] [69] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@75671cbd 
+http-bio-8080-exec-3> [2014-06-29 16:10:19] [ProductController] [69] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@1afd95e6 
+http-bio-8080-exec-3> [2014-06-29 16:10:19] [ProductController] [69] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@2e24f2a3 
+http-bio-8080-exec-3> [2014-06-29 16:10:20] [ProductController] [69] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@5405003b 
+localhost-startStop-1> [2014-06-29 16:18:07] [DispatcherServlet] [467] [ERROR] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1146)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:505)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:459)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5033)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5317)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:517)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:286)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:988)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:858)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:770)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:489)
+	... 28 more
+http-bio-8080-exec-1> [2014-06-29 16:18:08] [DispatcherServlet] [467] [ERROR] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1146)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:505)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:459)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:885)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:136)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:936)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1004)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:517)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:286)
+	... 31 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:988)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:858)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:770)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:489)
+	... 33 more
+localhost-startStop-1> [2014-06-29 16:18:32] [DispatcherServlet] [467] [ERROR] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1146)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:296)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:293)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:628)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:505)
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:459)
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1280)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1091)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5033)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5317)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.a_sply.porter.services.OrderService org.a_sply.porter.controller.OrderController.ordersService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:517)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:286)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.a_sply.porter.services.OrderService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:988)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:858)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:770)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:489)
+	... 28 more
+localhost-startStop-1> [2014-06-29 16:19:00] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:19:00] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:19:00] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:19:00] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:19:00] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:19:03] [ProductController] [72] [DEBUG] count : org.a_sply.porter.domain.Product2Condition@3d0a37ac 
+http-bio-8080-exec-2> [2014-06-29 16:19:10] [ProductController] [52] [DEBUG] request : 0 
+localhost-startStop-1> [2014-06-29 16:21:00] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:21:01] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:21:01] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:21:01] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:21:01] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:21:01] [ProductController] [52] [DEBUG] request : 0 
+http-bio-8080-exec-2> [2014-06-29 16:21:02] [ProductController] [52] [DEBUG] request : 0 
+localhost-startStop-1> [2014-06-29 16:25:08] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:25:08] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:25:08] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:25:08] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:25:08] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:25:11] [ProductController] [52] [DEBUG] request : 0 
+http-bio-8080-exec-2> [2014-06-29 16:25:14] [ProductController] [52] [DEBUG] request : 1 
+http-bio-8080-exec-4> [2014-06-29 16:30:27] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.Product2Condition@4e984c6 
+http-bio-8080-exec-5> [2014-06-29 16:30:35] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.Product2Condition@79165f96 
+localhost-startStop-1> [2014-06-29 16:38:08] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:38:08] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:38:08] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:38:08] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:38:08] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:38:08] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@12fe30f 
+http-bio-8080-exec-2> [2014-06-29 16:38:18] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@14b71513 
+localhost-startStop-1> [2014-06-29 16:38:47] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:38:47] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:38:47] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:38:47] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:38:47] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:38:47] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@236b5122 
+localhost-startStop-1> [2014-06-29 16:42:31] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:42:31] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:42:31] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:42:31] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:42:31] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:42:37] [ProductController] [52] [DEBUG] request : 1 
+http-bio-8080-exec-2> [2014-06-29 16:42:40] [ProductController] [52] [DEBUG] request : 1 
+localhost-startStop-1> [2014-06-29 16:44:45] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:44:45] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:44:45] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:44:45] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:44:45] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:45:08] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@2468f60c 
+http-bio-8080-exec-3> [2014-06-29 16:46:24] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@4ef2c45d 
+localhost-startStop-1> [2014-06-29 16:46:40] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:46:40] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:46:40] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:46:40] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:46:40] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:46:58] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@52c85238 
+localhost-startStop-1> [2014-06-29 16:51:14] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:51:15] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:51:15] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:51:15] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:51:15] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:51:17] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@13680721 
+localhost-startStop-1> [2014-06-29 16:51:47] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 16:51:47] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 16:51:47] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 16:51:47] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 16:51:47] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 16:51:48] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@21b43bf2 
+http-bio-8080-exec-2> [2014-06-29 16:52:00] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@57b75b98 
+http-bio-8080-exec-3> [2014-06-29 16:52:03] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@4c4fc491 
+http-bio-8080-exec-4> [2014-06-29 16:52:16] [ProductController] [62] [DEBUG] search : org.a_sply.porter.domain.product.ProductCondition@78975e44 
+localhost-startStop-1> [2014-06-29 17:08:28] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:08:28] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:08:28] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:08:28] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:08:28] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 17:08:32] [ProductController] [52] [DEBUG] request : 1 
+localhost-startStop-1> [2014-06-29 17:52:12] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:52:12] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:52:12] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:52:12] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:52:12] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 17:52:40] [PageNotFound] [194] [WARN] Request method 'POST' not supported 
+http-bio-8080-exec-2> [2014-06-29 17:52:50] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 17:53:33] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:53:33] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:53:33] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:53:33] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:53:33] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-2> [2014-06-29 17:53:42] [PageNotFound] [194] [WARN] Request method 'POST' not supported 
+http-bio-8080-exec-3> [2014-06-29 17:53:51] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-4> [2014-06-29 17:53:51] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 17:54:13] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:54:13] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:54:13] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:54:13] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:54:13] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 17:54:37] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 17:56:51] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:56:51] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:56:51] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:56:51] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:56:51] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 17:56:51] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-2> [2014-06-29 17:57:01] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-3> [2014-06-29 17:57:01] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-4> [2014-06-29 17:57:02] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-5> [2014-06-29 17:57:02] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-6> [2014-06-29 17:57:02] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-7> [2014-06-29 17:57:02] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-8> [2014-06-29 17:57:03] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 17:57:19] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 17:57:19] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 17:57:19] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 17:57:19] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 17:57:19] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-10> [2014-06-29 17:58:50] [PageNotFound] [194] [WARN] Request method 'POST' not supported 
+http-bio-8080-exec-10> [2014-06-29 18:00:04] [PageNotFound] [194] [WARN] Request method 'POST' not supported 
+http-bio-8080-exec-10> [2014-06-29 18:00:15] [ProductController] [82] [DEBUG] mine product 
+http-bio-8080-exec-10> [2014-06-29 18:00:29] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 18:01:21] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 18:01:21] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 18:01:21] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 18:01:21] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 18:01:21] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 18:01:37] [ProductController] [82] [DEBUG] mine product 
+localhost-startStop-1> [2014-06-29 20:37:06] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:37:06] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:37:06] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:37:06] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:37:06] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+localhost-startStop-1> [2014-06-29 20:40:01] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:40:01] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:40:01] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:40:01] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:40:01] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+localhost-startStop-1> [2014-06-29 20:41:20] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:41:20] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:41:20] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:41:20] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:41:20] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-2> [2014-06-29 20:41:27] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-2> [2014-06-29 20:41:27] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-3> [2014-06-29 20:42:05] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-3> [2014-06-29 20:42:05] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-4> [2014-06-29 20:42:49] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-4> [2014-06-29 20:42:49] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-5> [2014-06-29 20:42:50] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-5> [2014-06-29 20:42:50] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-6> [2014-06-29 20:42:51] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-6> [2014-06-29 20:42:51] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-7> [2014-06-29 20:42:51] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-7> [2014-06-29 20:42:51] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-8> [2014-06-29 20:42:52] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-8> [2014-06-29 20:42:52] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-9> [2014-06-29 20:42:53] [BaseController] [43] [DEBUG] Handling form validation error 
+http-bio-8080-exec-9> [2014-06-29 20:42:53] [BaseController] [78] [DEBUG] Adding error message: Failed to convert property value of type 'java.lang.String' to required type 'org.a_sply.porter.domain.product.Product' for property 'product'; nested exception is java.lang.IllegalStateException: Cannot convert value of type [java.lang.String] to required type [org.a_sply.porter.domain.product.Product] for property 'product': no matching editors or conversion strategy found to field: product 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ItemController] [30] [DEBUG] add : org.a_sply.porter.domain.item.Item@1a70e9f5 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRODUCT_ID' to property 'productId' of type long 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'USER_ID' to property 'userId' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MAKER_NO' to property 'carMakerNo' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_TYPE_NO' to property 'carTypeNo' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MODEL_NO' to property 'carModelNo' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_YEAR' to property 'carYear' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'MAIN_CATEGORY_NO' to property 'mainCategoryNo' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'SUB_CATEGORY_NO' to property 'subCategoryNo' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'NAME' to property 'name' of type class java.lang.String 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRICE' to property 'price' of type double 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'QUANTITY' to property 'quantity' of type int 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'LIST_IMAGE_URL' to property 'listImageUrl' of type class java.lang.String 
+http-bio-8080-exec-10> [2014-06-29 20:43:10] [BaseController] [55] [DEBUG] Handling form logic error 
+localhost-startStop-1> [2014-06-29 20:44:03] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:44:03] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:44:03] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:44:03] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:44:03] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ItemController] [30] [DEBUG] add : org.a_sply.porter.domain.item.Item@24838048 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRODUCT_ID' to property 'productId' of type long 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'USER_ID' to property 'userId' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MAKER_NO' to property 'carMakerNo' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_TYPE_NO' to property 'carTypeNo' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MODEL_NO' to property 'carModelNo' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_YEAR' to property 'carYear' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'MAIN_CATEGORY_NO' to property 'mainCategoryNo' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'SUB_CATEGORY_NO' to property 'subCategoryNo' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'NAME' to property 'name' of type class java.lang.String 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRICE' to property 'price' of type double 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'QUANTITY' to property 'quantity' of type int 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'LIST_IMAGE_URL' to property 'listImageUrl' of type class java.lang.String 
+http-bio-8080-exec-1> [2014-06-29 20:44:45] [BaseController] [55] [DEBUG] Handling form logic error 
+localhost-startStop-1> [2014-06-29 20:45:58] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:45:58] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:45:58] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:45:58] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:45:58] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+localhost-startStop-1> [2014-06-29 20:52:38] [Version] [24] [INFO] Hibernate Validator 4.2.0.Final 
+localhost-startStop-1> [2014-06-29 20:52:38] [DefaultTraversableResolver] [107] [DEBUG] Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver 
+localhost-startStop-1> [2014-06-29 20:52:38] [DefaultTraversableResolver] [118] [DEBUG] Instantiated JPA aware TraversableResolver of type org.hibernate.validator.engine.resolver.JPATraversableResolver. 
+localhost-startStop-1> [2014-06-29 20:52:38] [ValidationXmlParser] [203] [DEBUG] Trying to load META-INF/validation.xml for XML based Validator configuration. 
+localhost-startStop-1> [2014-06-29 20:52:38] [ValidationXmlParser] [206] [DEBUG] No META-INF/validation.xml found. Using annotation based configuration only 
+http-bio-8080-exec-3> [2014-06-29 20:53:42] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.NotNull, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={message={javax.validation.constraints.NotNull.message}, groups=[Ljava.lang.Class;@7df99738, payload=[Ljava.lang.Class;@307bb0ff}} 
+http-bio-8080-exec-3> [2014-06-29 20:53:42] [ConstraintDescriptorImpl] [429] [DEBUG] Adding composing constraint: ConstraintDescriptorImpl{annotation=javax.validation.constraints.Size, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, elementType=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface javax.validation.groups.Default], attributes={groups=[Ljava.lang.Class;@3b058ab7, min=1, message={javax.validation.constraints.Size.message}, max=2147483647, payload=[Ljava.lang.Class;@56942960}} 
+http-bio-8080-exec-3> [2014-06-29 20:53:42] [logging] [53] [DEBUG] Logging Provider: org.jboss.logging.Log4jLoggerProvider 
+http-bio-8080-exec-3> [2014-06-29 20:53:42] [UserController] [46] [DEBUG] create : org.a_sply.porter.dto.user.CreateUserDTO@5d337ca5 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ItemController] [30] [DEBUG] add : org.a_sply.porter.domain.item.Item@276a02d9 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRODUCT_ID' to property 'productId' of type long 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'USER_ID' to property 'userId' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MAKER_NO' to property 'carMakerNo' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_TYPE_NO' to property 'carTypeNo' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_MODEL_NO' to property 'carModelNo' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'CAR_YEAR' to property 'carYear' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'MAIN_CATEGORY_NO' to property 'mainCategoryNo' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'SUB_CATEGORY_NO' to property 'subCategoryNo' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'NAME' to property 'name' of type class java.lang.String 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'PRICE' to property 'price' of type double 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'QUANTITY' to property 'quantity' of type int 
+http-bio-8080-exec-5> [2014-06-29 20:53:57] [ExtendedBeanPropertyRowMapper] [250] [DEBUG] Mapping column 'LIST_IMAGE_URL' to property 'listImageUrl' of type class java.lang.String 

@@ -1,15 +1,14 @@
 package org.a_sply.porter.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.validation.Valid;
 
-import org.a_sply.porter.dto.product.CountProductDTO;
-import org.a_sply.porter.dto.product.CountedProductDTO;
-import org.a_sply.porter.dto.product.CreateProductDTO;
-import org.a_sply.porter.dto.product.CreatedProductDTO;
-import org.a_sply.porter.dto.product.RequestProductDTO;
-import org.a_sply.porter.dto.product.RequestedProductDTO;
-import org.a_sply.porter.dto.product.SearchProductDTO;
-import org.a_sply.porter.dto.product.SearchedProductDTO;
+import org.a_sply.porter.domain.product.MultipartImageFile;
+import org.a_sply.porter.domain.product.Product;
+import org.a_sply.porter.domain.product.ProductCondition;
 import org.a_sply.porter.services.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@SuppressWarnings("unchecked")
 @RequestMapping("/products")
 public class ProductController extends BaseController {
 	
@@ -40,46 +40,49 @@ public class ProductController extends BaseController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> create(@Valid CreateProductDTO createProductDTO) {
-		LOGGER.debug("create : {}", createProductDTO);
-		CreatedProductDTO createdProductDTO = productService.create(createProductDTO);
-		return new ResponseEntity<CreatedProductDTO>(createdProductDTO, HttpStatus.OK);
+	public ResponseEntity<?> create(@Valid Product product, MultipartImageFile multipartImageFile) {
+		LOGGER.debug("create : {}", product);
+		productService.create(product, multipartImageFile);
+		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<?> request(@PathVariable long productId) {
-		LOGGER.debug("request : {}", productId);
-		RequestedProductDTO requestedProductDTO = productService.request(new RequestProductDTO(productId));
-		if (requestedProductDTO == null)
+	public ResponseEntity<?> get(@PathVariable long productId) {
+		LOGGER.debug("get : {}", productId);
+		Product product = productService.get(productId);
+		if (product == null)
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<RequestedProductDTO>(requestedProductDTO, HttpStatus.OK);
+		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> search(@Valid SearchProductDTO searchProductDTO) {
-		LOGGER.debug("search : {}", searchProductDTO);
-		SearchedProductDTO searchedProductDTO = productService.search(searchProductDTO); 
-		return searchedProductDTO == null ? 
-				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<SearchedProductDTO>(searchedProductDTO, HttpStatus.OK);
+	public ResponseEntity<?> search(@Valid ProductCondition productCondition) {
+		LOGGER.debug("search : {}", productCondition);
+		List<Product> products = productService.search(productCondition); 
+		return products == null ? 
+				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
+
 	@RequestMapping(value = "/count", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> count(@Valid CountProductDTO countProductDTO) {
-		LOGGER.debug("count : {}", countProductDTO);
-		CountedProductDTO countedProductDTO = productService.count(countProductDTO);
-		return new ResponseEntity<CountedProductDTO>(countedProductDTO, HttpStatus.OK);
+	public ResponseEntity<?> count(@Valid ProductCondition productCondition) {
+		LOGGER.debug("count : {}", productCondition);
+		int count = productService.count(productCondition);
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("count", count);
+		return new ResponseEntity<Object>(result, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/mine", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> mine() {
+	public ResponseEntity<?> mine(@Valid ProductCondition productCondition) {
 		LOGGER.debug("mine product");
-		SearchedProductDTO searchedProductDTO = productService.search(); 
-		return searchedProductDTO == null ? 
-				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<SearchedProductDTO>(searchedProductDTO, HttpStatus.OK);
+		List<Product> products = productService.getMine(productCondition); 
+		return products == null ? 
+				new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
 }

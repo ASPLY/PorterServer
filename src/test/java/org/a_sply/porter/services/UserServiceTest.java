@@ -7,12 +7,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.dao.interfaces.UserDao;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.email.CheckEmailDTO;
 import org.a_sply.porter.dto.user.CheckNameDTO;
 import org.a_sply.porter.dto.user.CreateUserDTO;
 import org.a_sply.porter.dto.user.LoginUserDTO;
-import org.a_sply.porter.repository.UserRepository;
 import org.a_sply.porter.services.Impl.UserServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class UserServiceTest {
 
 	@Mock
-	private UserRepository userRepository;
+	private UserDao userRepository;
 	
 	@Mock
 	private PasswordEncoder passwordEncoder;

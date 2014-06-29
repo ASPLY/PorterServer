@@ -17,10 +17,6 @@ import org.a_sply.porter.domain.Image;
 import org.a_sply.porter.domain.MessageList;
 import org.a_sply.porter.domain.Part;
 import org.a_sply.porter.domain.User;
-import org.a_sply.porter.domain.product.CarInfo;
-import org.a_sply.porter.domain.product.ImageUrls;
-import org.a_sply.porter.domain.product.PartType;
-import org.a_sply.porter.domain.product.Product;
 import org.a_sply.porter.dto.article.ArticleDTO;
 import org.a_sply.porter.dto.article.CreateArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
@@ -129,7 +125,7 @@ public class UnitTestUtil {
 		article.setPart(part);
 		return article;
 	}
-	
+	/*
 	public static Product productA(User owner){
 		Product product = new Product.Builder()
 		.owner(owner)
@@ -152,6 +148,12 @@ public class UnitTestUtil {
 		return new PartType(9000, 9001);
 	}
 
+	private static ImageUrls imagesA() {
+		return new ImageUrls("www.aaa.com/list.jpg", 
+				Arrays.asList("www.aaa.com/normalA.jpg", "www.aaa.com/normalB.jpg"), 
+				Arrays.asList("www.aaa.com/zoomInA.jpg", "www.aaa.com/zoomInB.jpg"));
+	}*/
+
 	private static String nameA() {
 		return "존나 좋은 바퀴";
 	}
@@ -164,11 +166,6 @@ public class UnitTestUtil {
 		return 2;
 	}
 
-	private static ImageUrls imagesA() {
-		return new ImageUrls("www.aaa.com/list.jpg", 
-				Arrays.asList("www.aaa.com/normalA.jpg", "www.aaa.com/normalB.jpg"), 
-				Arrays.asList("www.aaa.com/zoomInA.jpg", "www.aaa.com/zoomInB.jpg"));
-	}
 
 	private static String stateA() {
 		return "상태는 거의 A 급입니다. 흠집은 뒷면에 조금 나있구요. 산지 얼마 안됐어요 !";

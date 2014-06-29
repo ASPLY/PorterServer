@@ -3,16 +3,16 @@ package org.a_sply.porter.dto.order;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.a_sply.porter.domain.order.Order;
+import org.a_sply.porter.domain.item.Item;
 
 public class SearchedOrderDTO {
 
 	private List<RequestedOrderDTO> orders;
 	
-	public SearchedOrderDTO(List<Order> domainOrders) {
+	public SearchedOrderDTO(List<Item> domainOrders) {
 		orders = new ArrayList<RequestedOrderDTO>();
 		
-		for (Order order : domainOrders)
+		for (Item order : domainOrders)
 			orders.add(new RequestedOrderDTO(order));		
 	}
 

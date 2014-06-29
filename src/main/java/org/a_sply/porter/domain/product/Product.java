@@ -1,133 +1,151 @@
 package org.a_sply.porter.domain.product;
 
-import org.a_sply.porter.domain.User;
+import java.util.List;
 
 public class Product {
 	
-	private long id;
+	private long productId;
+	private int userId;
 	
-	private User owner;
+	private int carMakerNo;
+	private int carModelNo;
+	private int carTypeNo;
+	private int carYear;
 	
-	private CarInfo carInfo;
-	private PartType partType;
+	private int mainCategoryNo;
+	private int subCategoryNo;
 	
 	private String name;
 	private double price;
-	private int amount;
-	private ImageUrls imageUrls;
+	private int quantity;
+	private String listImageUrl;
+	private List<String> normalImageUrls;
+	private List<String> zoomInImageUrls;
+	
 	private String state;
 	
-	private Product(Builder b) {
-		this.id = b.id;
-		this.owner = b.owner;
-		this.carInfo = b.carInfo;
-		this.partType = b.partType;
-		this.name = b.name;
-		this.price = b.price;
-		this.amount = b.amount;
-		this.imageUrls = b.imageUrls;
-		this.state = b.state;
-	}
-	public long getId() {
-		return id;
+	public Product() {
 	}
 
-	public User getOwner() {
-		return owner;
+	public long getProductId() {
+		return productId;
 	}
 
-	public CarInfo getCarInfo() {
-		return carInfo;
+	public void setProductId(long productId) {
+		this.productId = productId;
 	}
 
-	public PartType getPartType() {
-		return partType;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getCarMakerNo() {
+		return carMakerNo;
+	}
+
+	public void setCarMakerNo(int carMakerNo) {
+		this.carMakerNo = carMakerNo;
+	}
+
+	public int getCarModelNo() {
+		return carModelNo;
+	}
+
+	public void setCarModelNo(int carModelNo) {
+		this.carModelNo = carModelNo;
+	}
+
+	public int getCarTypeNo() {
+		return carTypeNo;
+	}
+
+	public void setCarTypeNo(int carTypeNo) {
+		this.carTypeNo = carTypeNo;
+	}
+
+	public int getMainCategoryNo() {
+		return mainCategoryNo;
+	}
+
+	public void setMainCategoryNo(int mainCategoryNo) {
+		this.mainCategoryNo = mainCategoryNo;
+	}
+
+	public int getSubCategoryNo() {
+		return subCategoryNo;
+	}
+
+	public void setSubCategoryNo(int subCategoryNo) {
+		this.subCategoryNo = subCategoryNo;
 	}
 
 	public String getName() {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public double getPrice() {
 		return price;
 	}
 
-	public int getAmount() {
-		return amount;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public ImageUrls getImageUrls() {
-		return imageUrls;
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getListImageUrl() {
+		return listImageUrl;
+	}
+
+	public void setListImageUrl(String listImageUrl) {
+		this.listImageUrl = listImageUrl;
 	}
 
 	public String getState() {
 		return state;
 	}
 
-	public static class Builder {
-		
-		private long id;
-		
-		private User owner;
-		
-		private CarInfo carInfo;
-		private PartType partType;
-		
-		private String name;
-		private double price;
-		private int amount;
-		private ImageUrls imageUrls;
-		private String state;
+	public void setState(String state) {
+		this.state = state;
+	}
 
-		public Builder(){
-			this.id = -1;
-		}
-		
-		public Builder id(long id){
-			this.id = id;
-			return this;
-		}
-		
-		public Builder owner(User owner){
-			this.owner = owner;
-			return this;
-		}
-		
-		public Builder carInfo(CarInfo carModel){
-			this.carInfo = carModel;
-			return this;
-		}
-		
-		public Builder partType(PartType partType){
-			this.partType = partType;
-			return this;
-		}
-		
-		public Builder name(String name){
-			this.name = name;
-			return this;
-		}
-		
-		public Builder price(double price){
-			this.price = price;
-			return this;
-		}
-		public Builder amount(int amount){
-			this.amount = amount;
-			return this;
-		}
-		public Builder images(ImageUrls imageUrls){
-			this.imageUrls = imageUrls;
-			return this;
-		}
-		public Builder state(String state){
-			this.state = state;
-			return this;
-		}
+	public List<String> getNormalImageUrls() {
+		return normalImageUrls;
+	}
 
-        public Product build() {
-            return new Product(this);
-        }
-    }
+	public void setNormalImageUrls(List<String> normalImageUrls) {
+		this.normalImageUrls = normalImageUrls;
+	}
+
+	public List<String> getZoomInImageUrls() {
+		return zoomInImageUrls;
+	}
+
+	public void setZoomInImageUrls(List<String> zoomInImageUrls) {
+		this.zoomInImageUrls = zoomInImageUrls;
+	}
+
+	public int getCarYear() {
+		return carYear;
+	}
+
+	public void setCarYear(int carYear) {
+		this.carYear = carYear;
+	}
+
 }
 

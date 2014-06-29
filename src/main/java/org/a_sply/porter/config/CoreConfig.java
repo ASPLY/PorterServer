@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
  */
 
 @Configuration
-@ComponentScan(basePackages = {"org.a_sply.porter.services", "org.a_sply.porter.repository"})
+@ComponentScan(basePackages = {"org.a_sply.porter.services", "org.a_sply.porter.dao"})
 @Import({ MessageConfig.class, PersistentConfig.class })
 public class CoreConfig {
 	

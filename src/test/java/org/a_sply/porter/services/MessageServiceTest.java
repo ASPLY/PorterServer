@@ -4,11 +4,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.dao.interfaces.MessageDao;
+import org.a_sply.porter.dao.interfaces.UserDao;
 import org.a_sply.porter.domain.Message;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.message.SendMessageDTO;
-import org.a_sply.porter.repository.MessageRepository;
-import org.a_sply.porter.repository.UserRepository;
 import org.a_sply.porter.services.Impl.MessageServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,10 +23,10 @@ public class MessageServiceTest {
 	private MessageService messageService = new MessageServiceImpl();
 
 	@Mock
-	private MessageRepository messageRepository;
+	private MessageDao messageRepository;
 
 	@Mock
-	private UserRepository userRepository;
+	private UserDao userRepository;
 	
 	@Mock
 	private AuthenticationService authenticationService;

@@ -1,6 +1,6 @@
 package org.a_sply.porter.domain;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.a_sply.porter.controller.UnitTestUtil;
 import org.a_sply.porter.domain.product.ImageFile;

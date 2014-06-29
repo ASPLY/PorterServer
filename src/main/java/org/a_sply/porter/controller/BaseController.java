@@ -3,6 +3,7 @@ package org.a_sply.porter.controller;
 import java.util.List;
 
 import org.a_sply.porter.dto.validation.ValidationErrorDTO;
+import org.a_sply.porter.exception.ErrorMsgDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,16 @@ public class BaseController {
 		List<FieldError> fieldErrors = result.getFieldErrors();
 
 		return processFieldErrors(fieldErrors);
+	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public ErrorMsgDTO processLogicError(RuntimeException ex) {
+		LOGGER.debug("Handling form logic error");
+
+		String errorMsg = ex.getLocalizedMessage();
+		return new ErrorMsgDTO(errorMsg);
 	}
 
 //	@ExceptionHandler(UnauthorizedException.class)

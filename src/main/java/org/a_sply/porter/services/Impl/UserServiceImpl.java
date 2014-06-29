@@ -2,12 +2,12 @@ package org.a_sply.porter.services.Impl;
 
 import java.io.UnsupportedEncodingException;
 
+import org.a_sply.porter.dao.interfaces.UserDao;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.email.CheckEmailDTO;
 import org.a_sply.porter.dto.user.CheckNameDTO;
 import org.a_sply.porter.dto.user.CreateUserDTO;
 import org.a_sply.porter.dto.user.LoginUserDTO;
-import org.a_sply.porter.repository.UserRepository;
 import org.a_sply.porter.services.UserService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserDao userDao;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -40,12 +40,12 @@ public class UserServiceImpl implements UserService {
 		String telephone = createUserDTO.getTelephone();											
 		User user = new User(name, email, telephone, password);
 		System.out.println(buildBasicAuthHeaderValue(createUserDTO.getEmail(), createUserDTO.getPassword()));
-		userRepository.insert(user);
+		userDao.insert(user);
 	}
 
 	@Override
 	public boolean check(CheckEmailDTO checkEmailDTO) {
-		if (userRepository.containsEmail(checkEmailDTO.getEmail()))
+		if (userDao.containsEmail(checkEmailDTO.getEmail()))
 			return false;
 		return true;
 	}
@@ -53,26 +53,26 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean login(LoginUserDTO loginUserDTO) {
-		UserDetails userDetails = userRepository.selectByEmail(loginUserDTO.getEmail());
+		UserDetails userDetails = userDao.selectByEmail(loginUserDTO.getEmail());
 		if(userDetails == null)
 			return false;
 		return passwordEncoder.matches(loginUserDTO.getPassword(), userDetails.getPassword());
 	}
 
-	public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public void setUserRepository(UserDao userRepository) {
+		this.userDao = userRepository;
 	}
 
 	@Override
 	public boolean check(CheckNameDTO checkNameDTO) {
-		if (userRepository.containsName(checkNameDTO.getName()))
+		if (userDao.containsName(checkNameDTO.getName()))
 			return false;
 		return true;
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User findByEmail = userRepository.selectByEmail(username);
+		User findByEmail = userDao.selectByEmail(username);
 		return findByEmail;
 	}
 

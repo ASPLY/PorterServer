@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.dao.interfaces.MessageListDao;
 import org.a_sply.porter.domain.MessageList;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.message.MessageListsDTO;
-import org.a_sply.porter.repository.MessageListRepository;
 import org.a_sply.porter.services.Impl.MessageListServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class MessageListSerivceTest {
 	private MessageListService messageListService = new MessageListServiceImpl();
 
 	@Mock
-	private MessageListRepository messageListRepository;
+	private MessageListDao messageListRepository;
 	
 	@Mock
 	private AuthenticationService authenticationService;

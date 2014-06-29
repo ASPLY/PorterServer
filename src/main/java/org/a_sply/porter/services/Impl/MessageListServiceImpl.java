@@ -3,11 +3,11 @@ package org.a_sply.porter.services.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.a_sply.porter.dao.interfaces.MessageListDao;
 import org.a_sply.porter.domain.MessageList;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.message.MessageListDTO;
 import org.a_sply.porter.dto.message.MessageListsDTO;
-import org.a_sply.porter.repository.MessageListRepository;
 import org.a_sply.porter.services.AuthenticationService;
 import org.a_sply.porter.services.MessageListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 public class MessageListServiceImpl implements MessageListService {
 
 	@Autowired
-	private MessageListRepository messageListRepository;
+	private MessageListDao messageListRepository;
 	
 	@Autowired
 	private AuthenticationService authenticationService;

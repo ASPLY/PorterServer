@@ -7,11 +7,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.dao.interfaces.ArticleDao;
+import org.a_sply.porter.dao.interfaces.UserDao;
 import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.article.CreateArticleDTO;
 import org.a_sply.porter.dto.article.CreatedArticleDTO;
-import org.a_sply.porter.repository.ArticleRepository;
-import org.a_sply.porter.repository.UserRepository;
 import org.a_sply.porter.services.Impl.ArticleServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,10 +25,10 @@ public class ArticleServiceTest {
 	private ArticleService articleService = new ArticleServiceImpl();
 
 	@Mock
-	private ArticleRepository articleRepository;
+	private ArticleDao articleRepository;
 
 	@Mock
-	private UserRepository userRepository;
+	private UserDao userRepository;
 
 	@Mock
 	private AuthenticationService authenticationService;

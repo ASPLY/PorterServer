@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.a_sply.porter.controller.UnitTestUtil;
+import org.a_sply.porter.dao.interfaces.ArticleListDao;
 import org.a_sply.porter.domain.ArticleList;
 import org.a_sply.porter.domain.RequestArticleLists;
 import org.a_sply.porter.domain.Search;
@@ -16,7 +17,6 @@ import org.a_sply.porter.domain.User;
 import org.a_sply.porter.dto.article_list.ArticleListsDTO;
 import org.a_sply.porter.dto.article_list.RequestArticleListsDTO;
 import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
-import org.a_sply.porter.repository.ArticleListRepository;
 import org.a_sply.porter.services.Impl.ArticleListSerivceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class ArticleListSerivceTest {
 	private ArticleListService articleService = new ArticleListSerivceImpl();
 
 	@Mock
-	private ArticleListRepository articleListRepository;
+	private ArticleListDao articleListRepository;
 
 	@Mock
 	private AuthenticationService authenticationService;

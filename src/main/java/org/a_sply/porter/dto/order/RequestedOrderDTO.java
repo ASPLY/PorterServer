@@ -1,10 +1,10 @@
 package org.a_sply.porter.dto.order;
 
-import org.a_sply.porter.domain.order.Order;
+import org.a_sply.porter.domain.item.Item;
 
 public class RequestedOrderDTO {
 
-	public RequestedOrderDTO(Order order) {
+	public RequestedOrderDTO(Item order) {
 	}
 
 }
