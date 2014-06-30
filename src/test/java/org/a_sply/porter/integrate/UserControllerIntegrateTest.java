@@ -1,36 +1,20 @@
 package org.a_sply.porter.integrate;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import javax.annotation.Resource;
-
 import org.a_sply.porter.config.CoreConfig;
 import org.a_sply.porter.config.SecurityConfig;
 import org.a_sply.porter.config.TestMVCConfig;
-import org.a_sply.porter.controller.UnitTestUtil;
-import org.a_sply.porter.domain.User;
-import org.a_sply.porter.dto.email.CheckEmailDTO;
-import org.a_sply.porter.dto.user.LoginUserDTO;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.context.WebApplicationContext;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { TestMVCConfig.class, CoreConfig.class, SecurityConfig.class})
 @WebAppConfiguration
 public class UserControllerIntegrateTest {
-
+/*
 	private static final String LEE = "LEE";
 	private static final String LOGN_PASSWORD_LENGTH = UnitTestUtil.createStringWithLength(20);
 	private static final String SHORHT_PASSWORD_LENGTH = UnitTestUtil.createStringWithLength(4);
@@ -186,5 +170,5 @@ public class UserControllerIntegrateTest {
 				post("/users/login").param("email", KD980311_NAVER_COM).param("password", INCORRECT_PASSWORD))
 				.andExpect(status().isNotFound()).andDo(print());
 
-	}
+	}*/
 }

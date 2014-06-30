@@ -2,7 +2,6 @@ package org.a_sply.porter.domain;
 
 import java.util.Date;
 
-import org.a_sply.porter.dto.message.MessageListDTO;
 import org.a_sply.porter.util.DateFormat;
 
 public class MessageList {
@@ -54,10 +53,4 @@ public class MessageList {
 	public void setSending(Date sending) {
 		this.sending = sending;
 	}
-
-	public MessageListDTO messageListDTO() {
-		return new MessageListDTO(messageId, from, preview,
-				DateFormat.format(sending));
-	}
-
 }

@@ -9,5 +9,5 @@ public interface ItemDao {
 	void insert(Item item);
 	void delete(long itemId);
 	void delete(long[] itemIds);
-	List<Item> selectByUserId(int userId);
+	List<Item> selectByUserId(long userId);
 }

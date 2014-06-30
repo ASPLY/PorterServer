@@ -23,15 +23,15 @@ public class JdbcMessageListDao implements MessageListDao {
 	private MessageListMapper messageListMapper = new MessageListMapper();
 
 	@Override
-	public List<MessageList> findByUserId(final int id) {
+	public List<MessageList> findByUserId(final long id) {
 		final String SQL = "select messages.ID, messages.PREVIEW, messages.SENDING_DATE, from_user.NAME from messages, users as from_user where messages.FROM_USER_ID = ? and from_user.ID = ? ORDER BY messages.ID DESC;";
 		return jdbcTemplate.query(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con)
 					throws SQLException {
 				PreparedStatement ps = con.prepareStatement(SQL);
-				ps.setInt(1, id);
-				ps.setInt(2, id);
+				ps.setLong(1, id);
+				ps.setLong(2, id);
 				return ps;
 			}
 		}, messageListMapper);

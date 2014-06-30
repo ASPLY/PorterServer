@@ -15,4 +15,8 @@ public class BaseTable {
 	protected String field(String field){
 		return table + "." + field;
 	}
+	
+	protected String colon(String field) {
+		return ":" +field;
+	}
 }

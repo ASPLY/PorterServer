@@ -2,62 +2,41 @@ package org.a_sply.porter.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
-import org.a_sply.porter.domain.Article;
-import org.a_sply.porter.domain.Description;
-import org.a_sply.porter.domain.Image;
-import org.a_sply.porter.domain.MessageList;
-import org.a_sply.porter.domain.Part;
-import org.a_sply.porter.domain.User;
-import org.a_sply.porter.dto.article.ArticleDTO;
-import org.a_sply.porter.dto.article.CreateArticleDTO;
-import org.a_sply.porter.dto.article.CreatedArticleDTO;
-import org.a_sply.porter.dto.article_list.ArticleListDTO;
-import org.a_sply.porter.dto.article_list.ArticleListsDTO;
-import org.a_sply.porter.dto.article_list.RequestArticleListsDTO;
-import org.a_sply.porter.dto.article_list.SearchArticleListDTO;
-import org.a_sply.porter.dto.email.CheckEmailDTO;
-import org.a_sply.porter.dto.message.MessageListDTO;
-import org.a_sply.porter.dto.message.MessageListsDTO;
-import org.a_sply.porter.dto.message.SendMessageDTO;
-import org.a_sply.porter.dto.part.CreatedPartDTO;
-import org.a_sply.porter.dto.part.PartDTO;
-import org.a_sply.porter.dto.user.CheckNameDTO;
-import org.a_sply.porter.dto.user.CreateUserDTO;
-import org.a_sply.porter.dto.user.LoginUserDTO;
-import org.a_sply.porter.dto.user.UserDTO;
-import org.apache.commons.codec.binary.Base64;
+import org.a_sply.porter.domain.user.User;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Petri Kainulainen
  */
 public class UnitTestUtil {
 
-	private static final String CHARACTER = "C";
-
-	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
 	public static final String IMAGES_A_TEST_JPG = "src\\test\\resources\\images\\test_A.jpg";
 	public static final String IMAGES_B_TEST_JPG = "src\\test\\resources\\images\\test_B.jpg";
-
 	public static final String TEST_STORAGE = "src\\test\\resources\\test_storage";
-	public static final String TEST_STORAGE_ORIGINAL_DIR = TEST_STORAGE + "\\original";
 	public static final String TEST_STORAGE_ARTICLE_THUMBNAIL_DIR = TEST_STORAGE + "\\article_thumbnail";
+	
+	private static final String CHARACTER = "C";
+	
+	public static String createStringWithLength(int length) {
+		StringBuilder builder = new StringBuilder();
+		for (int index = 0; index <= length; index++) {
+			builder.append(CHARACTER);
+		}
+		return builder.toString();
+	}
+/*
+
+	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+
+	public static final String TEST_STORAGE_ORIGINAL_DIR = TEST_STORAGE + "\\original";
 	public static final String TEST_STORAGE_ARTICLE_LIST_THUMBNAIL_DIR = TEST_STORAGE + "\\article_list_thumbnail";
 
 	public static byte[] convertObjectToJsonBytes(Object object)
@@ -67,13 +46,6 @@ public class UnitTestUtil {
 		return mapper.writeValueAsBytes(object);
 	}
 
-	public static String createStringWithLength(int length) {
-		StringBuilder builder = new StringBuilder();
-		for (int index = 0; index <= length; index++) {
-			builder.append(CHARACTER);
-		}
-		return builder.toString();
-	}
 
 	public static CreateArticleDTO createArticleDTO() {
 		CreateArticleDTO createArticleDTO = new CreateArticleDTO();
@@ -95,7 +67,7 @@ public class UnitTestUtil {
 
 	public static CreatedArticleDTO createdArticleDTO() {
 		CreatedArticleDTO createdArticleDTO = new CreatedArticleDTO();
-		createdArticleDTO.setId(0);
+		createdArticleDTO.setUserId(0);
 		createdArticleDTO.setPart(new CreatedPartDTO());
 		createdArticleDTO.setUser(new UserDTO());
 		createdArticleDTO.setIsSold(false);
@@ -125,7 +97,7 @@ public class UnitTestUtil {
 		article.setPart(part);
 		return article;
 	}
-	/*
+	
 	public static Product productA(User owner){
 		Product product = new Product.Builder()
 		.owner(owner)
@@ -152,7 +124,7 @@ public class UnitTestUtil {
 		return new ImageUrls("www.aaa.com/list.jpg", 
 				Arrays.asList("www.aaa.com/normalA.jpg", "www.aaa.com/normalB.jpg"), 
 				Arrays.asList("www.aaa.com/zoomInA.jpg", "www.aaa.com/zoomInB.jpg"));
-	}*/
+	}
 
 	private static String nameA() {
 		return "존나 좋은 바퀴";
@@ -297,31 +269,30 @@ public class UnitTestUtil {
 		loginUserDTO.setPassword(userA.getPassword());
 		return loginUserDTO;
 	}
-
+	*/
+	
 	public static User userA() {
-		return new User("chan", "kd980311@naver.com", "010-5215-2222",
-				"12345678");
+		return new User(90, "chan", "kd980311@naver.com", "010-5215-2222", "12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static User userB() {
-		return new User("Lee", "aassee123@nate.com", "011-1333-2333",
-				"12345678");
+		return new User(80, "Lee", "aassee123@nate.com", "011-1333-2333","12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static User userC() {
-		return new User("Hee", "kd6480@daum.com", "011-1333-1111", "12345678");
+		return new User(70, "Hee", "kd6480@daum.com", "011-1333-1111", "12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static User userD() {
-		return new User("She", "ggdd@nate.com", "02-1111-3333", "12345678");
+		return new User(60, "She", "ggdd@nate.com", "02-1111-3333", "12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static User userE() {
-		return new User("Call", "ggdd12@nate.com", "02-4444-2222", "12345678");
+		return new User(50, "Call", "ggdd12@nate.com", "02-4444-2222", "12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static User userF() {
-		return new User("Tom", "qwe123e@nate.com", "02-4444-2222", "12345678");
+		return new User(40, "Tom", "qwe123e@nate.com", "02-4444-2222", "12345678", AuthorityUtils.createAuthorityList("ROLE_USER"));
 	}
 
 	public static MultipartFile multipartFile(String path) {
@@ -343,7 +314,7 @@ public class UnitTestUtil {
 		}
 		return null;
 	}
-	
+
 	public static MultipartFile multipartFileA() {
 		return multipartFile(IMAGES_A_TEST_JPG);
 	}
@@ -351,7 +322,7 @@ public class UnitTestUtil {
 	public static MultipartFile multipartFileB() {
 		return multipartFile(IMAGES_B_TEST_JPG);
 	}
-
+/*
 	public static RequestArticleListsDTO getArticleListsDTO() {
 		RequestArticleListsDTO getArticleListsDTO = new RequestArticleListsDTO();
 		getArticleListsDTO.setCount(3);
@@ -408,5 +379,5 @@ public class UnitTestUtil {
 	public static String buildBasicAuthHeaderValue(User user) throws Exception {
 		return buildBasicAuthHeaderValue(user.getEmail(), user.getPassword());
 	}
-
+*/
 }

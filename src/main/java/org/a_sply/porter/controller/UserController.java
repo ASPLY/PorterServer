@@ -2,10 +2,8 @@ package org.a_sply.porter.controller;
 
 import javax.validation.Valid;
 
-import org.a_sply.porter.dto.email.CheckEmailDTO;
-import org.a_sply.porter.dto.user.CheckNameDTO;
-import org.a_sply.porter.dto.user.CreateUserDTO;
-import org.a_sply.porter.dto.user.LoginUserDTO;
+import org.a_sply.porter.domain.user.User;
+import org.a_sply.porter.domain.user.UserCondition;
 import org.a_sply.porter.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,9 +40,9 @@ public class UserController extends BaseController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public void create(@Valid CreateUserDTO createUserDTO) {
-		LOGGER.debug("create : {}", createUserDTO);
-		userService.create(createUserDTO);
+	public void create(@Valid User user) {
+		LOGGER.debug("create : {}", user);
+		userService.create(user);
 	}
 	
 	/**
@@ -55,13 +53,9 @@ public class UserController extends BaseController {
 	
 	@RequestMapping(value = "/check/email", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> check(@Valid CheckEmailDTO checkEmailDTO) {
-		LOGGER.debug("check : {}", checkEmailDTO);
-		if (userService.check(checkEmailDTO))
-			return new ResponseEntity(HttpStatus.OK);
-		else 
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
-		
+	public ResponseEntity<?> checkEmail(@Valid UserCondition userCondition) {
+		LOGGER.debug("check : {}", userCondition);
+		return userService.isContains(userCondition) ? new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity(HttpStatus.OK);
 	}
 	
 	/**
@@ -72,13 +66,9 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/check/name", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> check(@Valid CheckNameDTO checkNameDTO) {
-		LOGGER.debug("check : {}", checkNameDTO);
-		if (userService.check(checkNameDTO)) 
-			return new ResponseEntity(HttpStatus.OK);
-		 else 
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
-		
+	public ResponseEntity<?> checkName(@Valid UserCondition userCondition) {
+		LOGGER.debug("check : {}", userCondition);
+		return userService.isContains(userCondition) ? new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity(HttpStatus.OK);
 	}
 	
 	/**
@@ -89,21 +79,14 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity login(@Valid LoginUserDTO loginUserDTO) {
-		LOGGER.debug("login : {}", loginUserDTO);
-		if (userService.login(loginUserDTO)) 
-			return new ResponseEntity(HttpStatus.OK);
-		else
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
+	public ResponseEntity login(String email, String password) {
+		LOGGER.debug("login : {}", email + " , " + password);
+		return userService.login(email, password) ? new ResponseEntity(HttpStatus.OK) : new ResponseEntity(HttpStatus.NOT_FOUND);
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
 	public void logout() {
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
 	}
 }

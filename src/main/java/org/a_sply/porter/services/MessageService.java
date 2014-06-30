@@ -1,10 +1,15 @@
 package org.a_sply.porter.services;
 
-import org.a_sply.porter.dto.message.MessageDTO;
-import org.a_sply.porter.dto.message.SendMessageDTO;
+import java.util.List;
+
+import org.a_sply.porter.domain.Message;
+
 
 public interface MessageService {
-	void send(SendMessageDTO sendMessageDTO);
-	MessageDTO get(int id);
-	void remove(int id);
+	void send(Message message);
+	
+	List<Message> getMine();
+	Message get(long messageId);
+	
+	void remove(long[] messageIds);
 }

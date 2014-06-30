@@ -32,13 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 
 	protected void configure(HttpSecurity http) throws Exception {
-		 http.csrf().disable()
+		
+		http.csrf().disable()
 		 .authorizeRequests()
-		 .antMatchers("/images/**", "/articleLists/user", "/messages/**", "/messageLists/**", "/articles" ,"/products", "/items")
-		 .hasRole("USER")
-		 .anyRequest()
-		 .anonymous()
-		 .and()
+		 	.antMatchers("/products/**").permitAll()
+		 	.antMatchers("/products", "/products/mine", "/items", "/items/mine").hasRole("USER")
+		 	.anyRequest()
+		 	.anonymous()
+		 	.and()
 		 .httpBasic();
 	}
 }

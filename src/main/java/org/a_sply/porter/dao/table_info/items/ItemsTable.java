@@ -4,24 +4,19 @@ import org.a_sply.porter.dao.table_info.BaseTable;
 
 public class ItemsTable extends BaseTable{
 
+	private final String ITEM_ID = "ITEM_ID";
+	public final String FIELD_ITEM_ID = field(ITEM_ID);
+	
+	private final String USER_ID = "USER_ID";
+	public final String FIELD_USER_ID = field(USER_ID);
+	
+	private final String PRODUCT_ID = "PRODUCT_ID";
+	public final String FIELD_PRODUCT_ID = field(PRODUCT_ID);
+	
+	private final String QUANTITY = "QUANTITY";
+	public final String FIELD_QUANTITY = field(QUANTITY);
+
 	public ItemsTable() {
 		super("items");
 	}
-	
-	public String ITEM_ID(){
-		return field("ITEM_ID");
-	}
-	
-	public String USER_ID(){
-		return field("USER_ID");
-	}
-	
-	public String PRODUCT_ID(){
-		return field("PRODUCT_ID");
-	}
-
-	public String QUANTITY() {
-		return field("QUANTITY");
-	}
-
 }

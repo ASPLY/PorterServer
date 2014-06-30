@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.a_sply.porter.dao.interfaces.MessageDao;
 import org.a_sply.porter.domain.Message;
-import org.a_sply.porter.domain.User;
+import org.a_sply.porter.domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -34,8 +34,8 @@ public class JdbcMessageDao implements MessageDao {
 					Connection connection) throws SQLException {
 				PreparedStatement ps = connection.prepareStatement(SQL,
 						new String[] { "id" });
-				ps.setInt(1, message.getTo().getId());
-				ps.setInt(2, message.getFrom().getId());
+				ps.setLong(1, message.getTo().getUserId());
+				ps.setLong(2, message.getFrom().getUserId());
 				ps.setString(3, message.getPreview());
 				ps.setString(4, message.getContent());
 				return ps;
@@ -79,13 +79,13 @@ public class JdbcMessageDao implements MessageDao {
 			message.setSending(rs.getTimestamp("SENDING_DATE"));
 
 			User to = new User();
-			to.setId(rs.getInt("TO_USER_ID"));
+			to.setUserId(rs.getInt("TO_USER_ID"));
 			to.setEmail(rs.getString("TO_USER_EMAIL"));
 			to.setName(rs.getString("TO_USER_NAME"));
 			to.setTelephone(rs.getString("TO_USER_TELEPHONE"));
 
 			User from = new User();
-			from.setId(rs.getInt("FROM_USER_ID"));
+			from.setUserId(rs.getInt("FROM_USER_ID"));
 			from.setEmail(rs.getString("FROM_USER_EMAIL"));
 			from.setName(rs.getString("FROM_USER_NAME"));
 			from.setTelephone(rs.getString("FROM_USER_TELEPHONE"));

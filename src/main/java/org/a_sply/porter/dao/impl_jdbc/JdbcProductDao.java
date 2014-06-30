@@ -4,10 +4,10 @@ import static org.a_sply.porter.dao.table_info.TableConst.PRODUCTS;
 import static org.a_sply.porter.dao.table_info.TableConst.PRODUCTS_DES_IMAGE_URLS;
 import static org.a_sply.porter.dao.table_info.TableConst.PRODUCTS_STATE;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.a_sply.porter.dao.interfaces.ProductDao;
 import org.a_sply.porter.dao.interfaces.SelectType;
@@ -16,9 +16,9 @@ import org.a_sply.porter.domain.product.ProductCondition;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +29,10 @@ public class JdbcProductDao implements ProductDao{
 	private KeyHolder keyHolder;
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	
+	@Autowired
+	private DataSource dataSource;
 	
 	@Override
 	public long insert(Product product) {
@@ -41,87 +44,51 @@ public class JdbcProductDao implements ProductDao{
 	}
 
 	public long insertProduct(final Product product) {
-		final String INSERT_PRODUCT_SQL = new SQL(){{
-			INSERT_INTO(PRODUCTS.toString());
-			VALUES(PRODUCTS.USER_ID(), 			"?"); // 1
-			VALUES(PRODUCTS.CAR_MAKER_NO(), 	"?"); // 2
-			VALUES(PRODUCTS.CAR_TYPE_NO(), 		"?"); // 3
-			VALUES(PRODUCTS.CAR_MODEL_NO(), 	"?"); // 4
-			VALUES(PRODUCTS.CAR_YEAR(), 		"?"); // 5
-			VALUES(PRODUCTS.MAIN_CATEGORY_NO(), "?"); // 6
-			VALUES(PRODUCTS.SUB_CATEGORY_NO(), 	"?"); // 7
-			VALUES(PRODUCTS.NAME(), 			"?"); // 8
-			VALUES(PRODUCTS.PRICE(), 			"?"); // 9
-			VALUES(PRODUCTS.QUANTITY(), 			"?"); // 10
-			VALUES(PRODUCTS.LIST_IMAGE_URL(), 	"?"); // 11
-		}}.toString();
-		
-		jdbcTemplate.update(new PreparedStatementCreator() {
-			public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-				PreparedStatement ps = connection.prepareStatement(INSERT_PRODUCT_SQL, new String[] { "id" });
-				ps.setInt(1, product.getUserId());
-				ps.setInt(2, product.getCarMakerNo());
-				ps.setInt(3, product.getCarTypeNo());
-				ps.setInt(4, product.getCarModelNo());
-				ps.setInt(5, product.getCarYear());
-				ps.setInt(6, product.getMainCategoryNo());
-				ps.setInt(7, product.getSubCategoryNo());
-				ps.setString(8, product.getName());
-				ps.setDouble(9, product.getPrice());
-				ps.setInt(10, product.getQuantity());
-				ps.setString(11, product.getListImageUrl());
-				return ps;
-			}
-		}, keyHolder);
-		
-		return keyHolder.getKey().longValue();
+		return new SimpleJdbcInsert(dataSource)
+				.withTableName(PRODUCTS.toString())
+				.usingGeneratedKeyColumns(PRODUCTS.FIELD_PRODUCT_ID)
+				.executeAndReturnKeyHolder(new MappedBeanPropertySqlParameterSource(product))
+				.getKey().longValue();
 	}
 
 
 	public void insertProductState(Product product) {
-		final String INSERT_SQL2 = new SQL(){{
-			INSERT_INTO(PRODUCTS_STATE.toString());
-			VALUES(PRODUCTS_STATE.PRODUCT_ID(), "?"); // 1
-			VALUES(PRODUCTS_STATE.STATE(), 		"?"); // 2
-		}}.toString();
-		
-		jdbcTemplate.update(INSERT_SQL2, product.getProductId(), product.getState());
+		new SimpleJdbcInsert(dataSource)
+			.withTableName(PRODUCTS_STATE.toString())
+			.execute(new MappedBeanPropertySqlParameterSource(product));
 	}
 
 
 	public void insertProductDesImageUrls(final Product product) {
 		final String INSERT_SQL3 = new SQL(){{
 			INSERT_INTO(PRODUCTS_DES_IMAGE_URLS.toString());
-			VALUES(PRODUCTS_DES_IMAGE_URLS.PRODUCT_ID(), "?"); // 1
-			VALUES(PRODUCTS_DES_IMAGE_URLS.NORMAL_URL(), "?"); // 2
-			VALUES(PRODUCTS_DES_IMAGE_URLS.ZOOMIN_URL(), "?"); // 3
+			VALUES(PRODUCTS_DES_IMAGE_URLS.FIELD_PRODUCT_ID, Product.NAMED_PRODUCT_ID); // 1
+			VALUES(PRODUCTS_DES_IMAGE_URLS.FIELD_NORMAL_URL, Product.NAMED_NORMAL_URL); // 2
+			VALUES(PRODUCTS_DES_IMAGE_URLS.FIELD_ZOOMIN_URL, Product.NAMED_ZOOMIN_URL); // 3
 		}}.toString();
 		
-		jdbcTemplate.batchUpdate(INSERT_SQL3, new BatchPreparedStatementSetter() {
-			@Override
-			public void setValues(PreparedStatement ps, int i) throws SQLException {
-				ps.setLong(1, product.getProductId());
-				ps.setString(2, product.getNormalImageUrls().get(i));
-				ps.setString(3, product.getZoomInImageUrls().get(i));
-			}
-			@Override
-			public int getBatchSize() {
-				return product.getNormalImageUrls().size();
-			}
-		});
+		List<MapSqlParameterSource> parameters = new ArrayList<MapSqlParameterSource>();
+		for(int i=0; i<product.getNormalImageUrls().size(); i++){
+			parameters.add(new MapSqlParameterSource()
+							.addValue(Product.PRODUCT_ID, product.getProductId())
+							.addValue(Product.NORMAL_URL, product.getNormalImageUrls().get(i))
+							.addValue(Product.ZOOMIN_URL, product.getZoomInImageUrls().get(i)));
+		}
+
+		namedParameterJdbcTemplate.batchUpdate(INSERT_SQL3, parameters.toArray(new MapSqlParameterSource[0]));
 	}
 
 	@Override
 	public Product selectById(final SelectType selectType, final long productId) {
-		Product product2;
+		Product product;
 		try {
-			product2 = selectProductById(selectType, productId);
+			product = selectProductById(selectType, productId);
 			if(selectType == SelectType.WITH_DETAIL)
-				selectDesImgUrlsAndSetValue(product2);
+				selectDesImgUrlsAndSetValue(product);
 		}catch(EmptyResultDataAccessException e){
-			product2 = null;
+			product = null;
 		}
-		return product2;
+		return product;
 	}
 
 		private Product selectProductById(final SelectType selectType, final long productId) {
@@ -129,96 +96,94 @@ public class JdbcProductDao implements ProductDao{
 				SELECT("*");
 				FROM(PRODUCTS.toString());
 				if(selectType == SelectType.WITH_DETAIL)
-					LEFT_OUTER_JOIN(PRODUCTS_STATE.toString() + " on " + PRODUCTS_STATE.PRODUCT_ID() +" = "+ PRODUCTS.PRODUCT_ID());
-				WHERE(PRODUCTS.PRODUCT_ID() + "=" + productId);
+					LEFT_OUTER_JOIN(PRODUCTS_STATE.toString() + " on " + PRODUCTS_STATE.FIELD_PRODUCT_ID +" = "+ PRODUCTS.FIELD_PRODUCT_ID);
+				WHERE(PRODUCTS.FIELD_PRODUCT_ID + "=" + Product.NAMED_PRODUCT_ID);
 			}}.toString();
 
-			return jdbcTemplate.queryForObject(SELECT_BY_ID_SQL, new ExtendedBeanPropertyRowMapper<Product>(Product.class));
+			return namedParameterJdbcTemplate.queryForObject(SELECT_BY_ID_SQL, 
+					new MapSqlParameterSource(Product.PRODUCT_ID, productId), 
+					new ExtendedBeanPropertyRowMapper<Product>(Product.class));
 		}
 
-		private void selectDesImgUrlsAndSetValue(Product product2) {
-			List<String> zoomInImageUrls = selectProductDesUrlsById(PRODUCTS_DES_IMAGE_URLS.NORMAL_URL(), product2.getProductId());
-			List<String> normalImageUrls = selectProductDesUrlsById(PRODUCTS_DES_IMAGE_URLS.ZOOMIN_URL(), product2.getProductId());
+		private void selectDesImgUrlsAndSetValue(Product product) {
+			List<String> zoomInImageUrls = selectProductDesUrlsById(PRODUCTS_DES_IMAGE_URLS.FIELD_NORMAL_URL, product.getProductId());
+			List<String> normalImageUrls = selectProductDesUrlsById(PRODUCTS_DES_IMAGE_URLS.FIELD_ZOOMIN_URL, product.getProductId());
 
-			product2.setZoomInImageUrls(zoomInImageUrls);
-			product2.setNormalImageUrls(normalImageUrls);
+			product.setZoomInImageUrls(zoomInImageUrls);
+			product.setNormalImageUrls(normalImageUrls);
 		}
 	
 			private List<String> selectProductDesUrlsById(final String colName, final long productId) {
 				String SELECT_BY_ID_SQL = new SQL(){{
 					SELECT(colName);
 					FROM(PRODUCTS_DES_IMAGE_URLS.toString());
-					WHERE(PRODUCTS_DES_IMAGE_URLS.PRODUCT_ID() + "=" + productId);
+					WHERE(PRODUCTS_DES_IMAGE_URLS.PRODUCT_ID + "=" + Product.NAMED_PRODUCT_ID);
 				}}.toString();
 				
-				return jdbcTemplate.queryForList(SELECT_BY_ID_SQL, String.class);
+				
+				return namedParameterJdbcTemplate.queryForList(SELECT_BY_ID_SQL, 
+						new MapSqlParameterSource(Product.PRODUCT_ID , productId), String.class); 
 			}
 
 
 	@Override
 	public List<Product> selectByCondition(final SelectType selectType, final ProductCondition productCondition) {
 		final String SELECT_BY_CONDITION_SQL = new SQL(){{
-			SELECT(PRODUCTS.PRODUCT_ID());
-			SELECT(PRODUCTS.USER_ID());
-			SELECT(PRODUCTS.CAR_MAKER_NO()); 
-			SELECT(PRODUCTS.CAR_TYPE_NO()); 
-			SELECT(PRODUCTS.CAR_MODEL_NO());
-			SELECT(PRODUCTS.CAR_YEAR()); 
-			SELECT(PRODUCTS.MAIN_CATEGORY_NO()); 
-			SELECT(PRODUCTS.SUB_CATEGORY_NO()); 
-			SELECT(PRODUCTS.NAME()); 
-			SELECT(PRODUCTS.PRICE()); 
-			SELECT(PRODUCTS.QUANTITY()); 
-			SELECT(PRODUCTS.LIST_IMAGE_URL());
+			SELECT(PRODUCTS.FIELD_PRODUCT_ID);
+			SELECT(PRODUCTS.FIELD_USER_ID);
+			SELECT(PRODUCTS.FIELD_CAR_MAKER_NO); 
+			SELECT(PRODUCTS.FIELD_CAR_TYPE_NO); 
+			SELECT(PRODUCTS.FIELD_CAR_MODEL_NO);
+			SELECT(PRODUCTS.FIELD_CAR_YEAR); 
+			SELECT(PRODUCTS.FIELD_MAIN_CATEGORY_NO); 
+			SELECT(PRODUCTS.FIELD_SUB_CATEGORY_NO); 
+			SELECT(PRODUCTS.FIELD_NAME); 
+			SELECT(PRODUCTS.FIELD_PRICE); 
+			SELECT(PRODUCTS.FIELD_QUANTITY); 
+			SELECT(PRODUCTS.FIELD_LIST_IMAGE_URL);
 			
 			if(selectType == SelectType.WITH_DETAIL)
-				SELECT(PRODUCTS_STATE.STATE());
+				SELECT(PRODUCTS_STATE.FIELD_STATE);
 			
 			FROM(PRODUCTS.toString());
-			LEFT_OUTER_JOIN(PRODUCTS_STATE.toString() + " on " + PRODUCTS_STATE.PRODUCT_ID() +" = "+ PRODUCTS.PRODUCT_ID());
+			LEFT_OUTER_JOIN(PRODUCTS_STATE.toString() + " on " + PRODUCTS_STATE.FIELD_PRODUCT_ID +" = "+ PRODUCTS.FIELD_PRODUCT_ID);
 			
-			int carMakerNo = productCondition.getCarMakerNo();
-			if(carMakerNo != 0)
-				WHERE(PRODUCTS.CAR_MAKER_NO() + " = " + carMakerNo);
+			if(productCondition.getCarMakerNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_MAKER_NO + " = " + ProductCondition.NAMED_CAR_MAKER_NO);
 
-			int carTypeNo = productCondition.getCarTypeNo();
-			if(carTypeNo != 0)
-				WHERE(PRODUCTS.CAR_TYPE_NO() + " = "+carTypeNo);
+			if(productCondition.getCarTypeNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_TYPE_NO + " = " + ProductCondition.NAMED_CAR_TYPE_NO);
 			
-			int carModelNo = productCondition.getCarModelNo();
-			if(carModelNo != 0)
-				WHERE(PRODUCTS.CAR_MODEL_NO() + " = " + carModelNo);
+			if(productCondition.getCarModelNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_MODEL_NO + " = " + ProductCondition.NAMED_CAR_MODEL_NO);
 			
-			int carYear = productCondition.getCarYear();
-			if(carYear != 0)
-				WHERE(PRODUCTS.CAR_YEAR() + " = " +carYear);
+			if(productCondition.getCarYear() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_YEAR + " = " + ProductCondition.NAMED_CAR_YEAR);
 			
-			int mainCategoryNo = productCondition.getMainCategoryNo();
-			if(mainCategoryNo != 0)
-				WHERE(PRODUCTS.MAIN_CATEGORY_NO() + " = " + mainCategoryNo);
+			if(productCondition.getMainCategoryNo() != 0)
+				WHERE(PRODUCTS.FIELD_MAIN_CATEGORY_NO + " = " + ProductCondition.NAMED_MAIN_CATEGORY_NO);
 			
-			int subCaregoryNo = productCondition.getSubCategoryNo();
-			if(subCaregoryNo != 0)
-				WHERE(PRODUCTS.SUB_CATEGORY_NO() + " = " + subCaregoryNo);
+			if(productCondition.getSubCategoryNo() != 0)
+				WHERE(PRODUCTS.FIELD_SUB_CATEGORY_NO + " = " + ProductCondition.NAMED_SUB_CATEGORY_NO);
 			
-			String keyword = productCondition.getKeyword();
-			if(keyword != null){
-				WHERE(PRODUCTS.NAME() + " like " +"'%"+keyword+"%'");
-				OR();
-				WHERE(PRODUCTS_STATE.STATE() + " like " +"'%"+keyword+"%'");
+			if(productCondition.getKeyword() != null){
+				WHERE(PRODUCTS.FIELD_NAME + " like " + "concat('%',"+ProductCondition.NAMED_KEYWORD+",'%')" );
+				//OR();
+				//WHERE(PRODUCTS_STATE.FIELD_STATE + " like " +"'%"+ProductCondition.NAMED_KEYWORD+"%'");
 			}
 			
-			int userId = productCondition.getUserId();
-			if(userId != 0)
-				WHERE(PRODUCTS.USER_ID() + " = " + userId);
+			if(productCondition.getUserId() != 0)
+				WHERE(PRODUCTS.FIELD_USER_ID + " = " + ProductCondition.NAMED_USER_ID);
 			
-			WHERE(PRODUCTS.QUANTITY() + " > " +0);
+			WHERE(PRODUCTS.FIELD_QUANTITY + " > " +0);
 			
-			ORDER_BY(PRODUCTS.PRODUCT_ID() + " DESC limit "+ productCondition.getOffset() +"," + productCondition.getCount());
+			ORDER_BY(PRODUCTS.FIELD_PRODUCT_ID + " DESC limit "+ ProductCondition.NAMED_OFFSET +" , " + ProductCondition.NAMED_COUNT);
 
 		}}.toString();
 		
-		List<Product> products = jdbcTemplate.query(SELECT_BY_CONDITION_SQL, new ExtendedBeanPropertyRowMapper<Product>(Product.class));
+		List<Product> products = namedParameterJdbcTemplate.query(SELECT_BY_CONDITION_SQL,
+				new MappedBeanPropertySqlParameterSource(productCondition), 
+				new ExtendedBeanPropertyRowMapper<Product>(Product.class));
 		
 		if(selectType == SelectType.WITH_DETAIL)
 			for (Product product : products)
@@ -234,32 +199,29 @@ public class JdbcProductDao implements ProductDao{
 			SELECT("COUNT(*)");
 			FROM(PRODUCTS.toString());
 			
-			int carMakerNo = productCondition.getCarMakerNo();
-			if(carMakerNo != 0)
-				WHERE(PRODUCTS.CAR_MAKER_NO() + " = " + carMakerNo);
+			if(productCondition.getCarMakerNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_MAKER_NO + " = " + ProductCondition.NAMED_CAR_MAKER_NO);
 
-			int carTypeNo = productCondition.getCarTypeNo();
-			if(carTypeNo != 0)
-				WHERE(PRODUCTS.CAR_TYPE_NO() + " = "+carTypeNo);
+			if(productCondition.getCarTypeNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_TYPE_NO + " = " + ProductCondition.NAMED_CAR_TYPE_NO);
 			
-			int carModelNo = productCondition.getCarModelNo();
-			if(carModelNo != 0)
-				WHERE(PRODUCTS.CAR_MODEL_NO() + " = " + carModelNo);
+			if(productCondition.getCarModelNo() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_MODEL_NO + " = " + ProductCondition.NAMED_CAR_MODEL_NO);
 			
-			int carYear = productCondition.getCarYear();
-			if(carYear != 0)
-				WHERE(PRODUCTS.CAR_YEAR() + " = " +carYear);
+			if(productCondition.getCarYear() != 0)
+				WHERE(PRODUCTS.FIELD_CAR_YEAR + " = " + ProductCondition.NAMED_CAR_YEAR);
 			
-			int mainCategoryNo = productCondition.getMainCategoryNo();
-			if(mainCategoryNo != 0)
-				WHERE(PRODUCTS.MAIN_CATEGORY_NO() + " = " + mainCategoryNo);
+			if(productCondition.getMainCategoryNo() != 0)
+				WHERE(PRODUCTS.FIELD_MAIN_CATEGORY_NO + " = " + ProductCondition.NAMED_MAIN_CATEGORY_NO);
 			
-			int subCaregoryNo = productCondition.getSubCategoryNo();
-			if(subCaregoryNo != 0)
-				WHERE(PRODUCTS.SUB_CATEGORY_NO() + " = " + subCaregoryNo);
+			if(productCondition.getSubCategoryNo() != 0)
+				WHERE(PRODUCTS.FIELD_SUB_CATEGORY_NO + " = " + ProductCondition.NAMED_SUB_CATEGORY_NO);
+			
 		}}.toString();
 		
-		return jdbcTemplate.queryForObject(COUNT_BY_CONDITION_SQL, Integer.class);
+		return namedParameterJdbcTemplate.queryForObject(COUNT_BY_CONDITION_SQL
+				,new MappedBeanPropertySqlParameterSource(productCondition)
+				,Integer.class);
 	}
 
 }

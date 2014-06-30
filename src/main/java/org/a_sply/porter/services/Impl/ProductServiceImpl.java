@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 			zoomInImageUrls.add(cdnServer.upload(imageFile.getFile(), "zoomIn"));
 		}
 
-		product.setUserId(AuthenticationUtil.getCurrentUser().getId());
+		product.setUserId(AuthenticationUtil.getCurrentUser().getUserId());
 		product.setListImageUrl(listImageUrl);
 		product.setNormalImageUrls(normalImageUrls);
 		product.setZoomInImageUrls(zoomInImageUrls);
@@ -71,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getMine(ProductCondition productCondition) {
-		productCondition.setUserId(AuthenticationUtil.getCurrentUser().getId());
+		productCondition.setUserId(AuthenticationUtil.getCurrentUser().getUserId());
 		return search(productCondition);
 	}
 }

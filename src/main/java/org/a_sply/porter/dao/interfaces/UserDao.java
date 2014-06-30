@@ -1,17 +1,13 @@
 package org.a_sply.porter.dao.interfaces;
 
-import org.a_sply.porter.domain.User;
+import java.util.List;
+
+import org.a_sply.porter.domain.user.User;
+import org.a_sply.porter.domain.user.UserCondition;
 
 public interface UserDao {
 
-	int insert(User user);
-	
-	boolean containsEmail(String email);
-	boolean contains(User user);
-	
-	boolean containsName(String name);
-	
-	User selectByEmail(String email);
-	User selectById(int id);
-	User selectByName(String name);
+	long insert(User user);
+	User selectByUserId(SelectType selectType, long userId);
+	List<User> selectByCondition(SelectType selectType, UserCondition userCondition);
 }

@@ -1,16 +1,15 @@
 package org.a_sply.porter.services.Impl;
 
-import java.io.UnsupportedEncodingException;
+import java.util.List;
 
+import org.a_sply.porter.dao.interfaces.SelectType;
 import org.a_sply.porter.dao.interfaces.UserDao;
-import org.a_sply.porter.domain.User;
-import org.a_sply.porter.dto.email.CheckEmailDTO;
-import org.a_sply.porter.dto.user.CheckNameDTO;
-import org.a_sply.porter.dto.user.CreateUserDTO;
-import org.a_sply.porter.dto.user.LoginUserDTO;
+import org.a_sply.porter.domain.BasicAuthHeaderValue;
+import org.a_sply.porter.domain.user.User;
+import org.a_sply.porter.domain.user.UserCondition;
 import org.a_sply.porter.services.UserService;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,47 +32,37 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public void create(CreateUserDTO createUserDTO) {
-		String name = createUserDTO.getName();				
-		String email = createUserDTO.getEmail();														
-		String password = passwordEncoder.encode(createUserDTO.getPassword());						
-		String telephone = createUserDTO.getTelephone();											
-		User user = new User(name, email, telephone, password);
-		System.out.println(buildBasicAuthHeaderValue(createUserDTO.getEmail(), createUserDTO.getPassword()));
+	public void create(User user) {
+		System.out.println("BasicAuthHeaderValue : " + new BasicAuthHeaderValue(user.getEmail(), user.getPassword()).getBasicAuthHeaderValue());
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
 		userDao.insert(user);
 	}
 
 	@Override
-	public boolean check(CheckEmailDTO checkEmailDTO) {
-		if (userDao.containsEmail(checkEmailDTO.getEmail()))
-			return false;
-		return true;
-	}
-
-
-	@Override
-	public boolean login(LoginUserDTO loginUserDTO) {
-		UserDetails userDetails = userDao.selectByEmail(loginUserDTO.getEmail());
-		if(userDetails == null)
-			return false;
-		return passwordEncoder.matches(loginUserDTO.getPassword(), userDetails.getPassword());
-	}
-
-	public void setUserRepository(UserDao userRepository) {
-		this.userDao = userRepository;
+	public boolean isContains(UserCondition userCondition) {
+		return userDao.selectByCondition(SelectType.WITHOUT_DETAIL, userCondition).size() != 0 ? true : false;
 	}
 
 	@Override
-	public boolean check(CheckNameDTO checkNameDTO) {
-		if (userDao.containsName(checkNameDTO.getName()))
+	public boolean login(String email, String password) {
+		UserCondition userCondition = new UserCondition();
+		userCondition.setEmail(email);
+		
+		List<User> users = userDao.selectByCondition(SelectType.WITHOUT_DETAIL, userCondition);
+		if(users.size() == 0)
 			return false;
-		return true;
+		
+		UserDetails userDetails = users.get(0);
+		return passwordEncoder.matches(password, userDetails.getPassword());
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User findByEmail = userDao.selectByEmail(username);
-		return findByEmail;
+		UserCondition userCondition = new UserCondition();
+		userCondition.setEmail(username);
+		List<User> selectByCondition = userDao.selectByCondition(SelectType.WITH_DETAIL, userCondition);
+		return selectByCondition.size() == 0 ? null : selectByCondition.get(0);
 	}
 
 	public PasswordEncoder getPasswordEncoder() {
@@ -83,16 +72,4 @@ public class UserServiceImpl implements UserService {
 	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
 	}
-	
-	public static final String buildBasicAuthHeaderValue(String username, String password){
-        String authHeaderFormat = "Basic ";
-        String encodingRawData = String.format("%s:%s", username, password);
-        String encodingData;
-		try {
-			encodingData = authHeaderFormat + new String(Base64.encodeBase64(encodingRawData.getBytes("utf-8")));
-			return encodingData;
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
-    }
 }

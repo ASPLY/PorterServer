@@ -1,30 +1,49 @@
-package org.a_sply.porter.domain;
+package org.a_sply.porter.domain.user;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
-import org.a_sply.porter.dto.user.CreateUserDTO;
-import org.a_sply.porter.dto.user.LoginUserDTO;
-import org.a_sply.porter.dto.user.UserDTO;
+import org.a_sply.porter.domain.base.Named;
+import org.a_sply.porter.util.CRC32Util;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class User implements UserDetails {
+public class User  extends Named implements UserDetails{
 
-	private int id;														// user id using in db.
+	public static final String USER_ID = "userId";
+	public static final String NAMED_USER_ID = named(USER_ID);
+	private long userId;													// user id using in db.
+	
+	public static final String NAME_CRC = "nameCrc";
+	public static final String NAMED_NAME_CRC = named(NAME_CRC);
+	
+	public static final String NAME = "name";
+	public static final String NAMED_NAME = named(NAME);
 	private String name;												// name.	
+	
+	public static final String EMAIL_CRC = "emailCrc";
+	public static final String NAMED_EMAIL_CRC = named(EMAIL_CRC);	
+	
+	public static final String EMAIL = "email";
+	public static final String NAMED_EMAIL = named(EMAIL);	
 	private String email;												// email.		
+	
+	public static final String PASSWORD = "password";
+	public static final String NAMED_PASSWORD = named(PASSWORD);	
 	private String password;											// password.	
+	
+	public static final String TELEPHONE = "telephone";
+	public static final String NAMED_TELEPHONE = named(TELEPHONE);		
 	private String telephone;											// telephone.	
+	
+	public static final String AUTHORITY = "authority";
+	public static final String NAMED_AUTHORITY = named(AUTHORITY);	
 	private Collection<? extends GrantedAuthority> authorities;			// user authorities.
 	
 	public User() {
 	}
 	
-	public User(int id, String name, String email, String telephone, String password, Collection<? extends GrantedAuthority> authorities) {
-		this.id = id;
+	public User(long userId, String name, String email, String telephone, String password, Collection<? extends GrantedAuthority> authorities) {
+		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -32,24 +51,12 @@ public class User implements UserDetails {
 		this.authorities = authorities;
 	}
 
-	public User(String name, String email, String telephone, String password) {
-		this(-1, name, email, telephone, password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+	public long getUserId() {
+		return userId;
 	}
 
-	public static User from(CreateUserDTO createUserDTO) {
-		return new User(createUserDTO.getName(), createUserDTO.getEmail(), createUserDTO.getTelephone(), createUserDTO.getPassword());
-	}
-
-	public static User from(LoginUserDTO loginUserDTO) {
-		return new User(null, loginUserDTO.getEmail(), null, loginUserDTO.getPassword());
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -59,12 +66,17 @@ public class User implements UserDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public int getEmailCrc(){
+		if(email == null) return 0;
+		return CRC32Util.crcValue(email);
+	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	private void setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -92,16 +104,13 @@ public class User implements UserDetails {
 		return this.email.equals(((User) obj).email);
 	}
 
-	public UserDTO userDTO() {
-		UserDTO userDTO = new UserDTO();
-		userDTO.setEmail(email);
-		userDTO.setTelephone(telephone);
-		userDTO.setName(name);
-		return userDTO;
-	}
-
 	public String getName() {
 		return name;
+	}
+	
+	public int getNameCrc(){
+		if(name == null) return 0;
+		return CRC32Util.crcValue(name);
 	}
 
 	public void setName(String name) {
@@ -137,5 +146,4 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
 }

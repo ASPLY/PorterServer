@@ -2,14 +2,13 @@ package org.a_sply.porter.domain;
 
 import java.util.Date;
 
-import org.a_sply.porter.dto.message.MessageDTO;
-import org.a_sply.porter.util.DateFormat;
+import org.a_sply.porter.domain.user.User;
 
 public class Message {
 
 	private static final int MEG_LIST_PREVIEW_LENGTH = 20;			// message preview content length limited.
 
-	private int id;													// message id.
+	private long messageId;													// message id.
 	private User to;												// user to accept message.
 	private User from;												// user to send message.
 	private String content;											// message full content.
@@ -27,12 +26,12 @@ public class Message {
 	public Message() {
 	}
 
-	public int getId() {
-		return id;
+	public long getId() {
+		return messageId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long id) {
+		this.messageId = id;
 	}
 
 	public User getTo() {
@@ -84,8 +83,4 @@ public class Message {
 		this.sending = sending;
 	}
 
-	public MessageDTO messageDTO() {
-		return new MessageDTO(to.userDTO(), from.userDTO(), content, preview,
-				DateFormat.format(sending));
-	}
 }

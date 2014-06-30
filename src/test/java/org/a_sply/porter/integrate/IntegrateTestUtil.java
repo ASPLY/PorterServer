@@ -1,31 +1,11 @@
 package org.a_sply.porter.integrate;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import org.a_sply.porter.controller.UnitTestUtil;
-import org.a_sply.porter.dto.article.CreateArticleDTO;
-import org.a_sply.porter.dto.article.CreatedArticleDTO;
-import org.a_sply.porter.dto.message.MessageListsDTO;
-import org.a_sply.porter.dto.message.SendMessageDTO;
-import org.a_sply.porter.dto.user.CreateUserDTO;
-import org.a_sply.porter.util.DateFormat;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
  * @author Petri Kainulainen
  */
 public class IntegrateTestUtil {
-
+/*
 	private MockMvc mockMvc;
 	private Gson gson = new Gson();
 
@@ -103,5 +83,5 @@ public class IntegrateTestUtil {
 				.create();
 		return gson.fromJson(mvcResult.getResponse().getContentAsString(),
 				MessageListsDTO.class);
-	}
+	}*/
 }

@@ -51,9 +51,7 @@ public class ProductController extends BaseController {
 	public ResponseEntity<?> get(@PathVariable long productId) {
 		LOGGER.debug("get : {}", productId);
 		Product product = productService.get(productId);
-		if (product == null)
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<Product>(product, HttpStatus.OK);
+		return product == null ? new ResponseEntity(HttpStatus.BAD_REQUEST) : new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)

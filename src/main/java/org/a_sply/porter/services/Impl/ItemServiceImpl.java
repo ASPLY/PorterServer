@@ -26,7 +26,7 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public void add(Item item) {
 		Product product = productDao.selectById(SelectType.WITHOUT_DETAIL, item.getProductId());
-		item.setUserId(AuthenticationUtil.getCurrentUser().getId());
+		item.setUserId(AuthenticationUtil.getCurrentUser().getUserId());
 		
 		if(item.getQuantity() > product.getQuantity())
 			throw new ProductQuantityShortageException();
@@ -46,7 +46,7 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public Cart getMine() {
-		List<Item> items = itemDao.selectByUserId(AuthenticationUtil.getCurrentUser().getId());
+		List<Item> items = itemDao.selectByUserId(AuthenticationUtil.getCurrentUser().getUserId());
 		for (Item item : items) 
 			item.setProduct(productDao.selectById(SelectType.WITHOUT_DETAIL, item.getProductId()));
 		return new Cart(items);

@@ -47,7 +47,7 @@ public class BaseController {
 
 		return processFieldErrors(fieldErrors);
 	}
-	
+	/*
 	@ExceptionHandler(RuntimeException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -56,7 +56,7 @@ public class BaseController {
 
 		String errorMsg = ex.getLocalizedMessage();
 		return new ErrorMsgDTO(errorMsg);
-	}
+	}*/
 
 //	@ExceptionHandler(UnauthorizedException.class)
 //	@ResponseStatus(HttpStatus.BAD_REQUEST)
